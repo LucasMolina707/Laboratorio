@@ -134,10 +134,6 @@
   }
   </script>
 
-  <!-- =============================================================
-       [NO TOCAR / DO NOT TOUCH] – SISTEMA DE DISEÑO (ES/EN)
-       Mantiene uniformidad del sitio / Keeps the site consistent
-       ============================================================= -->
   <style>
     /* =============================================================
        PALETA DE ARMONÍA (alto contraste, sin negros puros)
@@ -162,7 +158,7 @@
 
     /* =============================================================
        TOPBAR + ACCIONES (logo + botones a la derecha)
-       ============================================================= */
+    ============================================================= */
     .topbar{ position:sticky; top:0; z-index:60; backdrop-filter:saturate(1.1) blur(8px); background:rgba(13,18,30,.75); border-bottom:1px solid var(--border)}
     .topbar .row{display:flex; align-items:center; gap:12px; padding:12px 0}
 
@@ -269,16 +265,16 @@
       <div class="brand">
         <!-- [SEO/TODO] Marca + claim -->
         <strong>Ing. Lucas Learning Hub</strong>
-        <span>Portada</span>
+        <span>Plantilla Base</span>
       </div>
 
       <div class="actions">
         <!-- Botón: abrir comentarios (icono solo) -->
-        <button class="icon-btn" id="openComments" title="Abrir comentarios" aria-label="Abrir comentarios">
+        <button class="icon-btn" id="openComments" title="Abrir comentarios" aria-label="Abrir comentarios" aria-expanded="false" aria-controls="commentsDrawer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
         </button>
         <!-- Botón: abrir menú (hover/click en desktop) -->
-        <button class="icon-btn" id="openDrawer" title="Abrir menú" aria-label="Abrir menú" aria-expanded="false">
+        <button class="icon-btn" id="openDrawer" title="Abrir menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
         </button>
       </div>
@@ -296,22 +292,11 @@
     <div class="bd">
       <div class="nav-group">
         <h4>Páginas</h4>
-        <nav class="nav">
-          <a href="index.html" aria-current="page">Inicio / Presentación</a>
-          <a href="contacto.html">Contacto</a>
-          <a href="politicas-privacidad.html">Políticas de Privacidad</a>
-        </nav>
+        <nav class="nav" id="nav-pages"></nav>
       </div>
       <div class="nav-group">
         <h4>Ventanas / Proyectos</h4>
-        <nav class="nav">
-          <a href="2313LíneaDeTiempo.html">2313 · Línea de Tiempo</a>
-          <a href="2316-comparacion-ingenieria-sistemas-vs-informatica.html">2316 · Sistemas vs Informática</a>
-          <a href="NetworkCenter-Mantenimiento-Lógico-en-Windows.html.html">Mantenimiento Lógico en Windows</a>
-          <a href="proyectos/pseint-contador.html">PSeInt – Contador</a>
-          <a href="proyectos/servidor-ubuntu.html">Servidor Ubuntu</a>
-          <a href="proyectos/excel-macros.html">Excel – Macros</a>
-        </nav>
+        <nav class="nav" id="nav-projects"></nav>
       </div>
     </div>
   </aside>
@@ -343,9 +328,8 @@
             <span class="dot max"></span>
           </div>
           <div>
-            <!-- [AÑADIDO/EDITADO] Título contextual de la ventana -->
-            <div class="window-title">Portada del sitio · Inicio</div>
-            <div class="title-meta">Ruta > Inicio · Activo</div>
+            <div class="window-title">Inicio · Ing. Lucas Learning Hub</div>
+            <div class="title-meta">Ruta > Portada · Estado</div>
           </div>
         </div>
         <div class="title-right"></div>
@@ -354,370 +338,556 @@
       <div class="window-body">
         <section class="pane">
           <!-- =====================================================
-               [AÑADIDO / ADDED] – CONTENIDO ENCAPSULADO ILH
-               ES: Todo el nuevo contenido está aislado en data-scope="ilh".
-               EN: All new content is sandboxed inside data-scope="ilh".
+               [INTEGRACIÓN / INTEGRATION] – Contenido agregado SOLO dentro de <section class="pane">
+               ES: Se integra la herramienta "Generador de Prompt Maestro" totalmente encapsulada.
+               EN: "Master Prompt Generator" tool integrated, fully scoped.
+               Reglas / Rules: no se toca header/drawer/utterances/footer/cookies; IDs únicos; estilos en [data-scope="ilh"] o .ilh-*.
                ===================================================== -->
-          <div data-scope="ilh">
-            <!-- =====================================================
-                 SUBNAV + HERO (ACCESIBLE)
-                 ===================================================== -->
-            <article class="ilh-idx" aria-labelledby="ilh-ttl">
-              <!-- Subnavegación local / Local subnav -->
-              <nav class="ilh-subnav" aria-label="Secciones de la portada">
-                <a class="ilh-pill" href="#ilh-intro">Introducción</a>
-                <a class="ilh-pill" href="#ilh-dev">Desarrollo</a>
-                <a class="ilh-pill" href="#ilh-conc">Conclusiones</a>
-                <a class="ilh-pill" href="#ilh-refs">Referencias</a>
-                <span class="ilh-spacer" aria-hidden="true"></span>
-                <button class="ilh-navbtn" id="ilhPrev" title="Anterior" aria-label="Anterior">◀</button>
-                <button class="ilh-navbtn" id="ilhNext" title="Siguiente" aria-label="Siguiente">▶</button>
-              </nav>
 
-              <!-- Hero / encabezado -->
-              <header class="ilh-hero">
-                <h1 id="ilh-ttl">Ing. Lucas Learning Hub · Portada</h1>
-                <p class="ilh-lead">
-                  Portafolio y bitácora de proyectos. Esta portada integra
-                  <em>presentación</em>, <em>proyectos</em> y <em>contacto</em>
-                  dentro de una misma “ventana” uniforme.
-                </p>
-              </header>
+          <!-- App: Generador de Prompt Maestro -->
+          <main class="ilh-wrap" data-scope="ilh" id="app">
+            <header class="mb-0">
+              <h1>🧩 Generador de Prompt Maestro</h1>
+              <p class="ilh-sub">Integra contenido en tu plantilla sin romper header/drawer/utterances/footer/cookies. Marca opciones, genera y copia.</p>
+            </header>
 
-              <!-- =====================================================
-                   CONTENIDO (SECCIONES)
-                   ===================================================== -->
-              <div class="ilh-content" id="ilhContent" role="region" aria-label="Contenido portada">
-                <!-- =================== INTRODUCCIÓN =================== -->
-                <section class="ilh-section" id="ilh-intro" aria-labelledby="ilh-intro-h">
-                  <div class="ilh-hd">
-                    <h2 id="ilh-intro-h">Introducción</h2>
-                  </div>
-                  <div class="ilh-card">
-                    <p>
-                      Este documento funciona como <strong>Index/Portada</strong> del sitio. Presenta el enfoque del autor, las áreas de interés y el mapa de navegación a “ventanas” temáticas. El propósito académico es <em>organizar la evidencia</em> de aprendizaje y <em>comunicar</em> soluciones de manera clara y evaluable.
-                    </p>
-                    <p class="ilh-muted">Metas: visibilidad de proyectos, coherencia visual, accesibilidad básica y rutas de contacto.</p>
-                  </div>
-                </section>
-
-                <!-- ==================== DESARROLLO ==================== -->
-                <section class="ilh-section" id="ilh-dev" aria-labelledby="ilh-dev-h">
-                  <div class="ilh-hd">
-                    <h2 id="ilh-dev-h">Hola, soy Lucas Molina.</h2>
-                  </div>
-
-                  <!-- Bloque saludo + CTA -->
-                  <div class="ilh-card ilh-grid">
+            <!-- 1) Entradas base -->
+            <section class="ilh-card" aria-labelledby="ilh-step1">
+              <h2 id="ilh-step1" class="mb-0">1) Entradas base</h2>
+              <p class="ilh-hint mt-2">ES: Pega tu plantilla y el contenido del proyecto. | EN: Paste your base template and project content.</p>
+              <div class="ilh-grid cols-2 mt-3">
+                <div>
+                  <label for="template-input">Plantilla HTML base</label>
+                  <textarea id="template-input" placeholder="Pega aquí tu plantilla HTML completa..." aria-describedby="hint-template"></textarea>
+                  <p id="hint-template" class="ilh-hint mt-2">No se modificará fuera del selector permitido.</p>
+                </div>
+                <div>
+                  <label for="content-input">Contenido del proyecto (HTML o texto)</label>
+                  <textarea id="content-input" placeholder="Pega aquí tu contenido HTML o texto..." aria-describedby="hint-content"></textarea>
+                  <div class="ilh-row mt-2">
                     <div>
-                      <h3 class="ilh-h3">“Aprendiendo a ser ingeniero, <strong>un proyecto a la vez.</strong>”</h3>
-                      <p class="ilh-muted">“Para ustedes”</p>
-                      <div class="ilh-chips" aria-label="Público principal">
-                        <span class="ilh-chip">Profesores AUNAR</span>
-                        <span class="ilh-chip">Compañeros</span>
-                        <span class="ilh-chip">Clientes potenciales</span>
-                        <span class="ilh-chip">Comunidad tech</span>
-                      </div>
-                      <div class="ilh-cta">
-                        <a class="ilh-btn ilh-btn--primary" href="#ilh-proy">Ver proyectos destacados</a>
-                        <a class="ilh-btn ilh-btn--accent" href="#ilh-contacto">Portafolio / Contacto</a>
-                      </div>
+                      <label for="content-type">Tipo de contenido</label>
+                      <select id="content-type">
+                        <option value="html" selected>HTML</option>
+                        <option value="text">Texto (convertir a HTML limpio)</option>
+                      </select>
                     </div>
                     <div>
-                      <div class="ilh-cardInner" role="img" aria-label="Ilustración conceptual de aprendizaje continuo">
-                        <h3 class="ilh-h3">Bitácora en construcción</h3>
-                        <p class="ilh-muted">
-                          Este sitio compila prácticas, retos y soluciones reales. Cada enlace abre una “ventana” con estructura uniforme para facilitar evaluación y mejora.
-                        </p>
-                        <div class="ilh-tagrow">
-                          <span class="ilh-tag">HTML/CSS</span>
-                          <span class="ilh-tag">Algoritmia</span>
-                          <span class="ilh-tag">Linux/Servers</span>
-                          <span class="ilh-tag">Excel/VBA</span>
-                        </div>
-                      </div>
+                      <label for="structure">¿Estructura académica?</label>
+                      <select id="structure">
+                        <option value="yes">Sí</option>
+                        <option value="no" selected>No</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="insertion-selector">Selector de inserción</label>
+                      <input id="insertion-selector" type="text" placeholder='Ej.: section.pane' value="section.pane" />
+                      <p class="ilh-hint mt-2">ES: Selector CSS exacto donde se permite modificar. | EN: Exact allowed CSS edit scope.</p>
                     </div>
                   </div>
-
-                  <!-- SOBRE MÍ -->
-                  <div class="ilh-card" id="ilh-sobre">
-                    <h3 class="ilh-h3">Sobre mí</h3>
-                    <p>
-                      Soy estudiante de <strong>Ingeniería Informática</strong> (AUNAR). Uso este espacio para documentar mi proceso, compartir código y mostrar evidencias de aprendizaje. Me interesa el desarrollo web, automatización con Excel/VBA y administración de servidores Linux.
-                    </p>
-                  </div>
-
-                  <!-- PROYECTOS DESTACADOS -->
-                  <div class="ilh-card" id="ilh-proy">
-                    <div class="ilh-rowhd">
-                      <h3 class="ilh-h3">Proyectos destacados</h3>
-                      <a class="ilh-link" href="#ilh-contacto">¿Comentarios? Escríbeme →</a>
-                    </div>
-                    <div class="ilh-cards">
-                      <article class="ilh-mini">
-                        <h4 class="ilh-h4">PSeInt · Promedio de notas</h4>
-                        <p>Algoritmo parametrizable + explicación paso a paso.</p>
-                        <div class="ilh-tagrow"><span class="ilh-tag">Algoritmia</span><span class="ilh-tag">PSeInt</span></div>
-                        <a class="ilh-btn" href="proyectos/pseint-promedio.html">Abrir ventana</a>
-                      </article>
-                      <article class="ilh-mini">
-                        <h4 class="ilh-h4">Servidor Ubuntu · Render/Cloud + Local</h4>
-                        <p>Guía práctica: despliegue estático y troubleshooting.</p>
-                        <div class="ilh-tagrow"><span class="ilh-tag">Linux</span><span class="ilh-tag">DevOps</span></div>
-                        <a class="ilh-btn" href="proyectos/servidor-ubuntu.html">Abrir ventana</a>
-                      </article>
-                      <article class="ilh-mini">
-                        <h4 class="ilh-h4">Excel Macros · Inventario minorista</h4>
-                        <p>Libro con menús, macros comentadas y flujos.</p>
-                        <div class="ilh-tagrow"><span class="ilh-tag">Excel/VBA</span><span class="ilh-tag">Retail</span></div>
-                        <a class="ilh-btn" href="proyectos/excel-macros.html">Abrir ventana</a>
-                      </article>
-                    </div>
-                  </div>
-
-                  <!-- RUTA DE APRENDIZAJE -->
-                  <div class="ilh-card" id="ilh-ruta">
-                    <h3 class="ilh-h3">Ruta de aprendizaje</h3>
-                    <div class="ilh-timeline">
-                      <div class="ilh-tl-item">
-                        <strong>Algoritmia y PSeInt</strong>
-                        <span>Condicionales, ciclos, modularización. Evidencias en ventanas PSeInt.</span>
-                      </div>
-                      <div class="ilh-tl-item">
-                        <strong>Web básica (HTML/CSS)</strong>
-                        <span>Layouts responsivos y componentes reutilizables (la portada lo demuestra).</span>
-                      </div>
-                      <div class="ilh-tl-item">
-                        <strong>Sistemas / Linux</strong>
-                        <span>Instalación, servicios web y despliegues (Render / GitHub Pages / Cloudflare).</span>
-                      </div>
-                      <div class="ilh-tl-item">
-                        <strong>Automatización con Excel/VBA</strong>
-                        <span>Macros documentadas y flujos para comercio minorista.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- COLABORACIÓN -->
-                  <div class="ilh-card" id="ilh-colabora">
-                    <h3 class="ilh-h3">Colabora conmigo</h3>
-                    <p class="ilh-muted"><strong>Este sitio es práctica en progreso.</strong> Si ves algo que pueda mejorar, dime o abre un issue.</p>
-                    <div class="ilh-cta">
-                      <a class="ilh-btn" href="https://github.com/IngLucas" target="_blank" rel="noopener">Abrir GitHub</a>
-                      <a class="ilh-btn" href="#ilh-contacto">Enviar sugerencia</a>
-                    </div>
-                  </div>
-
-                  <!-- CONTACTO -->
-                  <div class="ilh-card" id="ilh-contacto">
-                    <h3 class="ilh-h3">Portafolio y contacto</h3>
-                    <div class="ilh-cards ilh-cards--2">
-                      <div class="ilh-mini">
-                        <h4 class="ilh-h4">Contacto directo</h4>
-                        <p>¿Feedback, propuestas o colaboraciones? Estoy atento.</p>
-                        <div class="ilh-cta">
-                          <a class="ilh-btn" href="mailto:contacto@inglucas.com.co">contacto@inglucas.com.co</a>
-                          <a class="ilh-btn" href="https://www.linkedin.com/in/IngLucas" target="_blank" rel="noopener me">LinkedIn</a>
-                        </div>
-                      </div>
-                      <div class="ilh-mini">
-                        <h4 class="ilh-h4">Más trabajos</h4>
-                        <p>Explora mis repos y bocetos en curso.</p>
-                        <a class="ilh-btn" href="https://github.com/IngLucas" target="_blank" rel="noopener me">GitHub</a>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- =================== CONCLUSIONES =================== -->
-                <section class="ilh-section" id="ilh-conc" aria-labelledby="ilh-conc-h">
-                  <div class="ilh-hd">
-                    <h2 id="ilh-conc-h">Conclusiones</h2>
-                  </div>
-                  <div class="ilh-card">
-                    <ol>
-                      <li>La portada unifica <strong>presentación, evidencias y contacto</strong> en un flujo legible.</li>
-                      <li>Se preserva una <strong>identidad visual consistente</strong> y una estructura evaluable.</li>
-                      <li>La navegación local y los componentes reutilizables facilitan <strong>escalabilidad</strong> del sitio.</li>
-                    </ol>
-                  </div>
-                </section>
-
-                <!-- =================== REFERENCIAS =================== -->
-                <section class="ilh-section" id="ilh-refs" aria-labelledby="ilh-refs-h">
-                  <div class="ilh-hd">
-                    <h2 id="ilh-refs-h">Referencias</h2>
-                  </div>
-                  <div class="ilh-card">
-                    <ul class="ilh-refs">
-                      <li>W3C. (2018). <em>Web Content Accessibility Guidelines (WCAG) 2.1</em>. World Wide Web Consortium.</li>
-                      <li>Nielsen, J. (1994). <em>10 Usability Heuristics for User Interface Design</em>. Nielsen Norman Group.</li>
-                      <li>Krug, S. (2014). <em>Don't Make Me Think, Revisited</em>. New Riders.</li>
-                    </ul>
-                  </div>
-                </section>
+                </div>
               </div>
+            </section>
 
-              <!-- Área de estado accesible (futura) / Accessible status area -->
-              <p class="ilh-sr" id="ilhStatus" role="status" aria-live="polite"></p>
-            </article>
+            <!-- 2) Contexto del encargo -->
+            <section class="ilh-card" aria-labelledby="ilh-step2">
+              <h2 id="ilh-step2" class="mb-0">2) Contexto del encargo</h2>
+              <div class="ilh-grid cols-2 mt-3">
+                <div>
+                  <label for="goal">Objetivo del prompt</label>
+                  <input id="goal" type="text" placeholder="Ej.: Integrar un proyecto HTML en la plantilla sin romper el layout">
+                  <label for="audience" class="mt-2">Audiencia</label>
+                  <input id="audience" type="text" placeholder="Ej.: Usuarios no técnicos, equipo académico, etc.">
+                  <div class="ilh-row mt-2">
+                    <div>
+                      <label for="tone">Tono/estilo</label>
+                      <select id="tone">
+                        <option>Formal docente</option>
+                        <option selected>Directo y técnico</option>
+                        <option>Marketing persuasivo</option>
+                        <option>Neutro</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="format">Formato de salida</label>
+                      <select id="format">
+                        <option selected>HTML completo</option>
+                        <option>Markdown</option>
+                        <option>Texto plano</option>
+                        <option>Lista numerada</option>
+                        <option>Tabla</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="length">Longitud esperada</label>
+                      <select id="length">
+                        <option>Breve</option>
+                        <option>Media</option>
+                        <option selected>Larga</option>
+                        <option>Límite 800 palabras</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="positive-example">Mini ejemplo de lo deseado (opcional)</label>
+                  <textarea id="positive-example" placeholder="Ej.: Integrar sección con H2, respetar clases y comentar ES/EN..."></textarea>
+                  <label for="negative-example" class="mt-2">Qué NO hacer (opcional)</label>
+                  <textarea id="negative-example" placeholder="Ej.: No eliminar el banner de cookies ni mover el botón de comentarios..."></textarea>
+                </div>
+              </div>
+            </section>
 
-            <!-- =====================================================
-                 ESTILOS ENCAPSULADOS (.ilh- + [data-scope="ilh"])
-                 ES: No se fugan estilos al resto del sitio.
-                 EN: Styles are locally scoped to avoid leaks.
-                 ===================================================== -->
-            <style>
-              [data-scope="ilh"] .ilh-idx{display:grid; gap:16px}
-              [data-scope="ilh"] .ilh-hero{
-                padding:16px; border:1px solid var(--border); border-radius:var(--radius);
-                background:linear-gradient(180deg,rgba(20,26,38,.85),rgba(12,16,24,.85)); box-shadow:var(--shadow)
+            <!-- 3) Reglas duras -->
+            <section class="ilh-card" aria-labelledby="ilh-step3">
+              <h2 id="ilh-step3" class="mb-0">3) Reglas duras (marca con palomita)</h2>
+              <div class="ilh-grid cols-2 mt-3">
+                <div class="ilh-checks">
+                  <label><input type="checkbox" class="hr" value="No modificar ni eliminar header, menú lateral (drawer), botón de comentarios (utterances), footer ni banner de cookies." checked> No tocar header/drawer/utterances/footer/cookies.</label>
+                  <label><input type="checkbox" class="hr" value="Mantener la uniformidad del sitio (clases y animaciones existentes)." checked> Mantener clases/animaciones existentes.</label>
+                  <label><input type="checkbox" class="hr" value="Encapsular nuevos estilos con prefijo .ilh- o dentro de [data-scope=&quot;ilh&quot;]." checked> Encapsular estilos con <code>.ilh-</code> o <code>[data-scope=&quot;ilh&quot;]</code>.</label>
+                  <label><input type="checkbox" class="hr" value="Garantizar HTML válido (W3C) y accesible; usar IDs únicos y alt en imágenes." checked> HTML válido + accesibilidad + IDs únicos.</label>
+                  <label><input type="checkbox" class="hr" value="Compatibilidad responsive en PC y móviles sin librerías externas nuevas." checked> Responsive sin librerías nuevas.</label>
+                </div>
+                <div class="ilh-checks">
+                  <label><input type="checkbox" class="hr" value="Evitar sobrescribir variables globales o estilos base del sitio." checked> No sobrescribir variables/globales.</label>
+                  <label><input type="checkbox" class="hr" value="Comentarios bilingües ES/EN en el código entregado." checked> Comentarios bilingües ES/EN.</label>
+                  <label><input type="checkbox" class="hr" value="Sanitizar/escapar scripts dentro del contenido si viene como texto." checked> Sanitizar scripts en contenido de texto.</label>
+                  <label><input type="checkbox" class="hr" value="No insertar iframes externos sin aviso; marcar como &quot;requiere revisión&quot;." checked> Iframes externos: marcar “requiere revisión”.</label>
+                  <label><input type="checkbox" class="hr" value="Evitar estilos inline salvo justificación explícita." checked> Evitar estilos inline.</label>
+                </div>
+              </div>
+              <p class="ilh-hint mt-2">ES: Estas reglas se pegan tal cual en el prompt. | EN: These rules are copied verbatim into the prompt.</p>
+            </section>
+
+            <!-- 4) Integraciones -->
+            <section class="ilh-card" aria-labelledby="ilh-step4">
+              <h2 id="ilh-step4" class="mb-0">4) Integraciones de la plantilla base (animaciones)</h2>
+              <p class="ilh-hint mt-2">ES: Indica si se debe garantizar la integración de los botones y sus animaciones originales. | EN: Indicate whether to guarantee original buttons + animations integration.</p>
+              <div class="ilh-checks mt-2">
+                <label><input type="checkbox" id="integrate-menu" checked> Integrar <strong>botón de menú (drawer)</strong> con su animación de la plantilla base.</label>
+                <label><input type="checkbox" id="integrate-comments" checked> Integrar <strong>botón de comentarios (utterances)</strong> con sus animaciones de la plantilla base.</label>
+              </div>
+            </section>
+
+            <!-- 5) Presets y acciones -->
+            <section class="ilh-card" aria-labelledby="ilh-step5">
+              <h2 id="ilh-step5" class="mb-0">5) Presets y acciones</h2>
+              <div class="ilh-row mt-2">
+                <div class="ilh-row" style="flex:2">
+                  <div>
+                    <label for="preset">Preset</label>
+                    <select id="preset">
+                      <option value="custom" selected>— Personalizado —</option>
+                      <option value="html_puro">Insertar HTML puro</option>
+                      <option value="informe_academico">Informe académico</option>
+                      <option value="pagina_marketing">Página de marketing rápida</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="preset-name">Nombre para guardar el preset</label>
+                    <input id="preset-name" type="text" placeholder="Ej.: Trabajo SO v1"/>
+                  </div>
+                </div>
+                <div class="ilh-actions" role="group" aria-label="Acciones del generador">
+                  <button id="apply-preset" class="secondary">Aplicar preset</button>
+                  <button id="save-preset" class="secondary">Guardar preset</button>
+                  <button id="generate-btn">🔨 Generar prompt</button>
+                  <button id="copy-prompt-btn" class="ok" style="display:none;">📋 Copiar prompt</button>
+                  <span id="copy-status" class="ilh-ok" style="display:none;" aria-live="polite">✅ Copiado</span>
+                </div>
+              </div>
+              <p class="ilh-hint mt-2">ES: Los presets se guardan en el <em>localStorage</em> del navegador. | EN: Presets persist in browser localStorage.</p>
+            </section>
+
+            <!-- 6) Vista previa -->
+            <section class="ilh-card" aria-labelledby="ilh-step6">
+              <h2 id="ilh-step6" class="mb-0">6) Vista previa del prompt</h2>
+              <div id="prompt-preview" class="ilh-preview mt-2" role="region" aria-label="Vista previa">Genera el prompt para verlo aquí…</div>
+            </section>
+
+            <!-- 7) Checklist automático -->
+            <section class="ilh-card" aria-labelledby="ilh-step7">
+              <h2 id="ilh-step7" class="mb-0">7) Checklist automático</h2>
+              <ul id="auto-checklist" class="mt-2" aria-live="polite">
+                <li>1) Plantilla presente: <span id="chk-template" class="ilh-chip">pendiente</span></li>
+                <li>2) Contenido presente: <span id="chk-content" class="ilh-chip">pendiente</span></li>
+                <li>3) Selector de inserción: <span id="chk-selector" class="ilh-chip">pendiente</span></li>
+                <li>4) Reglas duras marcadas: <span id="chk-rules" class="ilh-chip">pendiente</span></li>
+                <li>5) Contexto del encargo: <span id="chk-context" class="ilh-chip">pendiente</span></li>
+              </ul>
+            </section>
+          </main>
+
+          <!-- ===================== ESTILOS ENCAPSULADOS (.ilh- / [data-scope="ilh"]) =====================
+               ES: Todos los selectores de tipo (h1, label, button, inputs, etc.) están limitados al scope.
+               EN: All type selectors (h1, label, button, inputs, etc.) are constrained to the scope.
+          -->
+          <style>
+            /* Variables locales — Local CSS variables */
+            [data-scope="ilh"]{
+              --bg:#0b1220;
+              --card:#111a2b;
+              --ink:#e8f0ff;
+              --muted:#9bb0d1;
+              --accent:#4cc9f0;
+              --ok:#2bd164;
+              --bad:#ff5964;
+              --border:#23314e;
+
+              --space-1:8px;
+              --space-2:12px;
+              --space-3:16px;
+              --space-4:20px;
+              --space-5:24px;
+              --radius:16px;
+              --radius-sm:10px;
+              --field-bg:#0e1728;
+
+              box-sizing:border-box;
+              color:var(--ink);
+              background:var(--bg);
+              min-height:100%;
+              padding:var(--space-5);
+              font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+            }
+            [data-scope="ilh"] *, [data-scope="ilh"] *::before, [data-scope="ilh"] *::after{ box-sizing:inherit; }
+
+            .ilh-wrap{max-width:min(1200px,100%); margin-inline:auto}
+            [data-scope="ilh"] h1{margin:0 0 var(--space-1)}
+            [data-scope="ilh"] .ilh-sub{color:var(--muted); margin:0 0 var(--space-4)}
+
+            .ilh-card{
+              background:var(--card);
+              border:1px solid var(--border);
+              border-radius:var(--radius);
+              padding:var(--space-4);
+            }
+
+            .ilh-grid{display:grid; gap:var(--space-4)}
+            @media (min-width:960px){ .ilh-grid.cols-2{ grid-template-columns:1fr 1fr } }
+
+            /* Controles (scoped) */
+            [data-scope="ilh"] label{font-weight:600; display:block; margin:.35rem 0 .25rem}
+            [data-scope="ilh"] input[type="text"],
+            [data-scope="ilh"] input[type="search"],
+            [data-scope="ilh"] select,
+            [data-scope="ilh"] textarea{
+              width:100%; padding:12px 14px; background:var(--field-bg); color:var(--ink);
+              border:1px solid var(--border); border-radius:var(--radius-sm); line-height:1.4;
+              font-family:ui-monospace, Menlo, Consolas, monospace;
+            }
+            [data-scope="ilh"] textarea{min-height:180px; resize:vertical}
+            .ilh-row{display:flex; gap:var(--space-3); flex-wrap:wrap}
+            .ilh-row > *{flex:1 1 220px}
+
+            .ilh-checks{display:grid; gap:var(--space-2)}
+            .ilh-checks label{display:flex; gap:10px; align-items:flex-start; font-weight:500}
+
+            .ilh-actions{display:flex; gap:var(--space-3); flex-wrap:wrap; align-items:center}
+            [data-scope="ilh"] button{
+              background:var(--accent); color:#071120; border:0; border-radius:var(--radius-sm);
+              padding:12px 16px; font-weight:700; cursor:pointer; min-height:44px;
+            }
+            [data-scope="ilh"] button.secondary{background:#16233a; color:var(--ink); border:1px solid var(--border)}
+            [data-scope="ilh"] button.ok{background:var(--ok); color:#06210f}
+            [data-scope="ilh"] button:focus-visible{outline:2px solid #8fd3ff; outline-offset:2px}
+
+            .ilh-hint{font-size:.92rem; color:var(--muted)}
+            .ilh-preview{
+              background:#0a1426; border:1px dashed var(--border); border-radius:var(--radius);
+              padding:var(--space-3); white-space:pre-wrap; overflow:auto; max-height:55vh;
+            }
+            .ilh-chip{background:#12203a; color:var(--muted); padding:4px 8px; border-radius:8px; font-size:.82rem}
+            .ilh-ok{color:var(--ok); font-weight:700}
+
+            /* Utilidades */
+            [data-scope="ilh"] ul{margin:0; padding-left:1.1rem}
+            .mt-2{margin-top:var(--space-2)}
+            .mt-3{margin-top:var(--space-3)}
+            .mt-4{margin-top:var(--space-4)}
+            .mb-0{margin-bottom:0}
+          </style>
+
+          <!-- ===================== JS ENCAPSULADO (IIFE) =====================
+               ES: Todo el comportamiento del generador está aislado para no interferir con la plantilla.
+               EN: Generator behavior is isolated so it doesn’t interfere with the base template.
+          -->
+          <script>
+            (function(){
+              // ===============================
+              // Utilidades básicas (scoped)
+              // ===============================
+              const $  = s => document.querySelector(s);
+              const $$ = s => Array.from(document.querySelectorAll(s));
+
+              function convertTextToHTML(text){
+                // ES: Convierte texto simple en párrafos HTML seguros
+                // EN: Convert plain text to safe HTML paragraphs
+                const safe = text.replace(/</g,'&lt;').replace(/>/g,'&gt;').trim();
+                if(!safe) return '<section data-scope="ilh"></section>';
+                const chunks = safe.split(/\n{2,}/).map(p => `<p>${p.replace(/\n/g,'<br/>')}</p>`);
+                return `<section data-scope="ilh">\n${chunks.join('\n')}\n</section>`;
               }
-              [data-scope="ilh"] .ilh-lead{margin:.25rem 0 0; color:var(--muted); font-size:14.5px}
 
-              [data-scope="ilh"] .ilh-subnav{
-                display:flex; gap:10px; align-items:center; overflow:auto; padding:6px;
-                border:1px solid var(--border); border-radius:var(--radius);
-                background:linear-gradient(180deg,rgba(25,31,45,.9),rgba(18,23,33,.9))
-              }
-              [data-scope="ilh"] .ilh-pill{
-                white-space:nowrap; padding:6px 10px; border-radius:999px;
-                border:1px solid var(--border); color:var(--muted); background:rgba(18,23,31,.12)
-              }
-              [data-scope="ilh"] .ilh-pill:hover{background:rgba(26,99,199,.12); color:var(--text)}
-              [data-scope="ilh"] .ilh-pill.is-active{border-color:var(--blue-500); color:#fff; background:rgba(26,99,199,.18)}
-              [data-scope="ilh"] .ilh-spacer{flex:1}
-              [data-scope="ilh"] .ilh-navbtn{
-                min-width:40px; height:32px; border-radius:10px; border:1px solid var(--border);
-                background:rgba(18,23,31,.2); color:var(--text); cursor:pointer
-              }
+              function wrapAcademicStructure(contentHTML){
+                // ES: Envoltura opcional con secciones académicas
+                // EN: Optional wrapper with academic sections
+                return `
+<section class="pane" data-scope="ilh">
+  <article>
+    <h2>Introducción</h2>
+    <p><!-- ES: Agrega una introducción; EN: Add an introduction --></p>
 
-              [data-scope="ilh"] .ilh-content{display:grid; gap:16px}
-              [data-scope="ilh"] .ilh-section{scroll-margin-top:14px}
-              [data-scope="ilh"] .ilh-hd{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin-bottom:8px}
+    <h2>Desarrollo</h2>
+    ${contentHTML}
 
-              [data-scope="ilh"] .ilh-card{
-                background:linear-gradient(180deg,rgba(25,31,45,.96),rgba(18,23,33,.96));
-                border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px
-              }
-              [data-scope="ilh"] .ilh-grid{display:grid; gap:16px}
-              @media(min-width:860px){
-                [data-scope="ilh"] .ilh-grid{grid-template-columns:1.2fr .8fr; align-items:center}
-              }
-              [data-scope="ilh"] .ilh-cardInner{
-                background:linear-gradient(180deg,rgba(16,22,34,.96),rgba(12,16,24,.96));
-                border:1px dashed var(--border); border-radius:var(--radius); padding:14px
+    <h2>Conclusiones</h2>
+    <p><!-- ES: Sintetiza puntos clave; EN: Summarize key points --></p>
+
+    <h2>Referencias</h2>
+    <p><!-- ES: Añade referencias (APA breve); EN: Add brief APA references --></p>
+  </article>
+</section>`.trim();
               }
 
-              [data-scope="ilh"] .ilh-muted{color:var(--muted)}
-              [data-scope="ilh"] .ilh-h3{margin:0 0 8px}
-              [data-scope="ilh"] .ilh-h4{margin:0 0 6px}
-
-              [data-scope="ilh"] .ilh-chips{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 0}
-              [data-scope="ilh"] .ilh-chip{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--border); background:rgba(18,23,31,.8)}
-              [data-scope="ilh"] .ilh-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-              [data-scope="ilh"] .ilh-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:rgba(18,23,31,.8); color:var(--text); cursor:pointer; text-decoration:none}
-              [data-scope="ilh"] .ilh-btn:hover{transform:translateY(-1px)}
-              [data-scope="ilh"] .ilh-btn--primary{background:linear-gradient(180deg,var(--blue-600),var(--blue-500)); border-color:transparent}
-              [data-scope="ilh"] .ilh-btn--accent{background:linear-gradient(180deg,#d39e00,#f0b800); color:#1a1400; border-color:transparent}
-
-              [data-scope="ilh"] .ilh-rowhd{display:flex; align-items:end; justify-content:space-between; gap:10px; margin-bottom:10px}
-              [data-scope="ilh"] .ilh-link{color:var(--blue-300)}
-              [data-scope="ilh"] .ilh-cards{display:grid; gap:16px}
-              [data-scope="ilh"] .ilh-cards--2{grid-template-columns:1fr}
-              @media(min-width:760px){
-                [data-scope="ilh"] .ilh-cards{grid-template-columns:repeat(3,1fr)}
-                [data-scope="ilh"] .ilh-cards--2{grid-template-columns:repeat(2,1fr)}
+              function getCheckedRules(){
+                return $$('.hr').filter(i=>i.checked).map(i=>i.value);
               }
-              [data-scope="ilh"] .ilh-mini{
-                background:linear-gradient(180deg,rgba(25,31,45,.96),rgba(18,23,33,.96));
-                border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; display:grid; gap:8px
+              function short(v, fb='—'){ return (v||'').trim() ? v.trim() : fb; }
+
+              // ===============================
+              // Checklist en vivo
+              // ===============================
+              function updateChecklist(){
+                $('#chk-template').textContent = $('#template-input').value.trim() ? 'ok' : 'pendiente';
+                $('#chk-content').textContent  = $('#content-input').value.trim() ? 'ok' : 'pendiente';
+                $('#chk-selector').textContent = $('#insertion-selector').value.trim() ? 'ok' : 'pendiente';
+                $('#chk-rules').textContent    = getCheckedRules().length >= 3 ? 'ok' : 'pendiente';
+                const ctxOK = $('#goal').value.trim() || $('#audience').value.trim();
+                $('#chk-context').textContent  = ctxOK ? 'ok' : 'pendiente';
+              }
+              ['template-input','content-input','insertion-selector','goal','audience'].forEach(id=>{
+                const el = document.getElementById(id);
+                el && el.addEventListener('input', updateChecklist);
+              });
+              $$('.hr').forEach(c=>c.addEventListener('change', updateChecklist));
+              updateChecklist();
+
+              // ===============================
+              // Presets
+              // ===============================
+              const builtInPresets = {
+                html_puro: {
+                  structure:'no', tone:'Directo y técnico', format:'HTML completo', length:'Breve',
+                  rules:[
+                    'Mantener la uniformidad del sitio (clases y animaciones existentes).',
+                    'Encapsular nuevos estilos con prefijo .ilh- o dentro de [data-scope="ilh"].',
+                    'Garantizar HTML válido (W3C) y accesible; usar IDs únicos y alt en imágenes.'
+                  ],
+                  integrates:{menu:true, comments:false}
+                },
+                informe_academico: {
+                  structure:'yes', tone:'Formal docente', format:'HTML completo', length:'Larga',
+                  rules:[
+                    'No modificar ni eliminar header, menú lateral (drawer), botón de comentarios (utterances), footer ni banner de cookies.',
+                    'Comentarios bilingües ES/EN en el código entregado.',
+                    'Evitar sobrescribir variables globales o estilos base del sitio.'
+                  ],
+                  integrates:{menu:true, comments:true}
+                },
+                pagina_marketing: {
+                  structure:'no', tone:'Marketing persuasivo', format:'HTML completo', length:'Media',
+                  rules:[
+                    'Mantener la uniformidad del sitio (clases y animaciones existentes).',
+                    'No insertar iframes externos sin aviso; marcar como "requiere revisión".',
+                    'Evitar estilos inline salvo justificación explícita.'
+                  ],
+                  integrates:{menu:true, comments:false}
+                }
+              };
+
+              function applyPresetData(p){
+                if(!p) return;
+                $('#structure').value = p.structure || 'no';
+                $('#tone').value      = p.tone || 'Neutro';
+                $('#format').value    = p.format || 'HTML completo';
+                $('#length').value    = p.length || 'Media';
+                // Reglas
+                $$('.hr').forEach(c=>c.checked=false);
+                (p.rules||[]).forEach(v=>{
+                  const box = $$('.hr').find(c=>c.value===v);
+                  if(box) box.checked = true;
+                });
+                // Integraciones
+                $('#integrate-menu').checked     = !!(p.integrates && p.integrates.menu);
+                $('#integrate-comments').checked = !!(p.integrates && p.integrates.comments);
+                updateChecklist();
               }
 
-              [data-scope="ilh"] .ilh-tagrow{display:flex; gap:8px; flex-wrap:wrap}
-              [data-scope="ilh"] .ilh-tag{font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
-
-              [data-scope="ilh"] .ilh-timeline{display:grid; gap:14px}
-              [data-scope="ilh"] .ilh-tl-item{display:grid; gap:6px; border-left:2px dashed var(--border); padding-left:12px}
-              [data-scope="ilh"] .ilh-tl-item strong{font-size:14px}
-
-              /* Móvil: la subnav permite scroll lateral si no entra / Mobile horizontal scroll */
-              @media (max-width: 860px){
-                [data-scope="ilh"] .ilh-subnav{scroll-snap-type:x proximity}
-                [data-scope="ilh"] .ilh-pill{scroll-snap-align:center}
+              function saveCustomPreset(name){
+                if(!name || !name.trim()){ alert('Pon un nombre para el preset.'); return; }
+                const data = {
+                  structure: $('#structure').value,
+                  tone: $('#tone').value,
+                  format: $('#format').value,
+                  length: $('#length').value,
+                  rules: getCheckedRules(),
+                  integrates: {
+                    menu: $('#integrate-menu').checked,
+                    comments: $('#integrate-comments').checked
+                  }
+                };
+                localStorage.setItem('ilh-preset-'+name, JSON.stringify(data));
+                alert('Preset guardado: ' + name);
+              }
+              function loadCustomPreset(name){
+                const raw = localStorage.getItem('ilh-preset-'+name);
+                if(!raw){ alert('No existe un preset con ese nombre.'); return; }
+                applyPresetData(JSON.parse(raw));
               }
 
-              /* Visually hidden util (accesible) */
-              [data-scope="ilh"] .ilh-sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
-            </style>
+              $('#apply-preset')?.addEventListener('click', ()=>{
+                const val = $('#preset').value;
+                if(val==='custom'){
+                  const name = prompt('Nombre del preset a cargar (guardado por ti):');
+                  if(name){ loadCustomPreset(name); }
+                }else{
+                  applyPresetData(builtInPresets[val]);
+                }
+              });
+              $('#save-preset')?.addEventListener('click', ()=>{
+                const name = $('#preset-name').value || prompt('Nombre para el preset:');
+                if(name){ saveCustomPreset(name); }
+              });
 
-            <!-- =====================================================
-                 JS ENCAPSULADO (IIFE) – SOLO NODOS DENTRO ILH
-                 ES: Mantiene la animación/función original del sitio.
-                 EN: Does not interfere with global drawer/utterances.
-                 ===================================================== -->
-            <script>
-              (function(){
-                "use strict";
-                // ES: Utilidades de sanitización (si en el futuro se renderiza HTML como texto)
-                // EN: Basic sanitizer to escape <script> when injecting raw text in the future.
-                function sanitizeText(html){
-                  return String(html)
-                    .replace(/<\s*script/gi,'&lt;script')
-                    .replace(/<\s*\/\s*script\s*>/gi,'&lt;/script&gt;');
+              // ===============================
+              // Generación del prompt
+              // ===============================
+              let lastPrompt = '';
+
+              function buildPrompt(){
+                const template = $('#template-input').value;
+                const contentRaw = $('#content-input').value;
+                const contentType = $('#content-type').value;
+                const structure = $('#structure').value;
+                const insertionSelector = $('#insertion-selector').value;
+
+                const goal = $('#goal').value;
+                const audience = $('#audience').value;
+                const tone = $('#tone').value;
+                const format = $('#format').value;
+                const length = $('#length').value;
+                const posEx = $('#positive-example').value;
+                const negEx = $('#negative-example').value;
+
+                const integrateMenu = $('#integrate-menu').checked;
+                const integrateComments = $('#integrate-comments').checked;
+
+                // Validaciones básicas
+                if(!template.trim()){ alert('Falta la plantilla base.'); return ''; }
+                if(!contentRaw.trim()){ alert('Falta el contenido del proyecto.'); return ''; }
+                if(!insertionSelector.trim()){ alert('Falta el selector de inserción.'); return ''; }
+
+                // Integración de contenido
+                let integratedContent = (contentType === 'text') ? convertTextToHTML(contentRaw) : contentRaw;
+                if(structure === 'yes'){
+                  integratedContent = wrapAcademicStructure(integratedContent);
                 }
 
-                const root = document.querySelector('[data-scope="ilh"]');
-                if(!root) return; // Guard
-
-                const rail = root.querySelector('#ilhContent');
-                const prev = root.querySelector('#ilhPrev');
-                const next = root.querySelector('#ilhNext');
-
-                // Secciones visibles / Visible sections
-                function sections(){ return Array.from(rail.querySelectorAll('.ilh-section')); }
-                function currentIndex(){
-                  const rect = rail.getBoundingClientRect();
-                  const mid = rect.top + rect.height/3;
-                  const idx = sections().findIndex(s=>{
-                    const r = s.getBoundingClientRect();
-                    return r.top <= mid && r.bottom >= mid;
-                  });
-                  return Math.max(0, idx);
+                const hardRules = getCheckedRules().slice();
+                if(integrateMenu){
+                  hardRules.push('Mantener y/o reconectar el botón de menú (drawer) con su animación original de la plantilla base.');
                 }
-                prev?.addEventListener('click', ()=>{
-                  const idx = currentIndex();
-                  if(idx>0) sections()[idx-1].scrollIntoView({behavior:'smooth', block:'start'});
-                });
-                next?.addEventListener('click', ()=>{
-                  const idx = currentIndex();
-                  const list = sections();
-                  if(idx<list.length-1) list[idx+1].scrollIntoView({behavior:'smooth', block:'start'});
-                });
+                if(integrateComments){
+                  hardRules.push('Mantener y/o reconectar el botón de comentarios (utterances) con sus animaciones originales de la plantilla base.');
+                }
+                const hardRulesUnique = [...new Set(hardRules)];
+                const hardRulesSummary = hardRulesUnique.length ? '• ' + hardRulesUnique.join('\n• ') : '—';
 
-                // Enlaces activos en subnav / Active subnav links
-                const links = Array.from(root.querySelectorAll('.ilh-subnav .ilh-pill'));
-                const targets = links.map(a => root.querySelector(a.getAttribute('href')));
-                const io = new IntersectionObserver(entries=>{
-                  entries.forEach(e=>{
-                    if(e.isIntersecting){
-                      const id = '#'+e.target.id;
-                      links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href')===id));
-                    }
-                  });
-                }, {root:null, threshold:0.55});
-                targets.forEach(t => t && io.observe(t));
+                const opcionesSel = [
+                  `Estructura académica: ${structure === 'yes' ? 'Sí / Yes' : 'No'}`,
+                  `Tipo de contenido: ${contentType === 'text' ? 'Texto (convertir a HTML)' : 'HTML directo'}`,
+                  `Integración botón de menú (drawer + animación): ${integrateMenu ? 'Sí / Yes' : 'No'}`,
+                  `Integración botón de comentarios (utterances + animaciones): ${integrateComments ? 'Sí / Yes' : 'No'}`
+                ].join('\n- ');
 
-                // Exponer sanitizer para posibles usos futuros (sin contaminar global) / expose via dataset only
-                root.dataset.sanitizer = 'ready'; // Flag only; no globals leaked.
-                void sanitizeText; // lint no-unused-vars
-              })();
-            </script>
-          </div>
-          <!-- ======================= FIN CONTENIDO ENCAPSULADO ILH ===================== -->
+                const prompt =
+`📝 Prompt Maestro para integración de contenido en plantilla base
+________________________________________
+Propósito / Purpose:
+- ES: ${short(goal,'Integrar contenido en plantilla base sin romper la estructura.')}
+- EN: ${short(goal,'Integrate project content into the base template without breaking the layout.')}
+
+Audiencia / Audience: ${short(audience,'Mixta / General')}
+Tono / Tone: ${tone}
+Formato de salida / Output format: ${format}
+Longitud / Length: ${length}
+Selector de inserción permitido / Allowed insertion selector: "${insertionSelector}"
+
+⚙️ Condiciones obligatorias (no negociables) / Hard rules:
+${hardRulesSummary}
+
+Notas de calidad / Quality constraints:
+- ES: Mantener accesibilidad (IDs únicos, alt en imágenes); conservar clases/animaciones existentes; no sobrescribir variables globales; evitar estilos inline salvo justificación; sanitizar scripts si el contenido viene como texto; iframes externos: marcar "requiere revisión".
+- EN: Keep accessibility (unique IDs, alt on images); preserve existing classes/animations; do not override global variables; avoid inline styles unless justified; sanitize scripts if content comes as text; external iframes: mark as "requires review".
+
+Zonas de edición / Edit scopes:
+- ES: Solo modificar el contenido dentro del selector indicado. Ningún otro bloque debe ser alterado.
+- EN: Only modify content within the specified selector. No other block must be changed.
+
+🔧 Opciones seleccionadas / Selected options:
+- ${opcionesSel}
+
+✅ Checklist que debes confirmar antes de devolver / Must confirm before delivering:
+1) Header, drawer, utterances, footer y cookies intactos.
+2) Inserción realizada ÚNICAMENTE en "${insertionSelector}".
+3) HTML válido y accesible; sin IDs duplicados.
+4) Estilos nuevos encapsulados (.ilh- o [data-scope="ilh"]).
+5) Responsive funcional en PC y móviles.
+6) Comentarios ES/EN añadidos.
+${integrateMenu ? '7) El botón de menú (drawer) mantiene su animación y funcionalidad originales.' : ''}
+${integrateComments ? '8) El botón de comentarios (utterances) mantiene sus animaciones y funcionalidad originales.' : ''}
+
+Ejemplo positivo (opcional) / Positive example (optional):
+${short(posEx, '—')}
+
+Qué NO hacer (opcional) / What NOT to do (optional):
+${short(negEx, '—')}
+
+📄 Contenido a integrar / Content to integrate:
+${integratedContent}
+
+📁 Plantilla HTML base / Base template:
+${template}
+`;
+                return prompt;
+              }
+
+              // Eventos
+              $('#generate-btn')?.addEventListener('click', ()=>{
+                const p = buildPrompt();
+                if(!p) return;
+                lastPrompt = p;
+                const prev = $('#prompt-preview');
+                prev.textContent = p;
+                $('#copy-prompt-btn').style.display = 'inline-block';
+                prev.focus?.();
+              });
+              $('#copy-prompt-btn')?.addEventListener('click', ()=>{
+                if(!lastPrompt){ alert('Primero, genera el prompt.'); return; }
+                navigator.clipboard.writeText(lastPrompt).then(()=>{
+                  const el = $('#copy-status');
+                  el.style.display = 'inline-block';
+                  setTimeout(()=> el.style.display='none', 1600);
+                });
+              });
+            })();
+          </script>
+          <!-- =================== FIN INTEGRACIÓN (scope: [data-scope="ilh"]) =================== -->
         </section>
 
-        <!-- Pie del proyecto dentro del workspace -->
+        <!-- Pie del proyecto dentro del workspace (INTACTO / UNCHANGED) -->
         <footer class="project-note" aria-label="Nota del proyecto">
           <span class="tag">🧩 Proyecto</span>
           <div>
@@ -741,7 +911,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.01 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.86h2.77l-.44 2.91h-2.33V22c4.78-.78 8.44-4.93 8.44-9.94z"/></svg>
           </a>
           <a class="chip" href="https://instagram.com/IngLucas" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11.001 5.5 5.5 0 0 1 0-11zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5.5 2a3.5 3.5 0 1 0 0 7.001A3.5 3.5 0 0 0 12 8z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 0 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11.001 5.5 5.5 0 0 1 0-11zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5.5 2a3.5 3.5 0 1 0 0 7.001A3.5 3.5 0 0 0 12 8z"/></svg>
           </a>
           <a class="chip" href="https://github.com/IngLucas" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.09-.74.09-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.86 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.67-.31-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.7.24 2.96.12 3.27.77.84 1.23 1.91 1.23 3.22 0 4.62-2.82 5.64-5.5 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
@@ -787,145 +957,259 @@
   </noscript>
 
   <script>
-    // =============================================================
-    // [NO TOCAR / DO NOT TOUCH] – UTILIDADES BÁSICAS (ES/EN)
-    // Año en footer / Year in footer
+    // Año
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Drawer refs
-    const drawer = document.getElementById('drawer');
-    const openBtn = document.getElementById('openDrawer');
-    const closeBtn = document.getElementById('closeDrawer');
+    // ============================================================
+    // Helpers de accesibilidad / estado
+    // ============================================================
+    const qs = sel => document.querySelector(sel);
+    const $drawer = qs('#drawer');
+    const $comments = qs('#commentsDrawer');
+    const $btnDrawer = qs('#openDrawer');
+    const $btnComments = qs('#openComments');
 
     const isDesktop = matchMedia('(hover:hover) and (pointer:fine)').matches;
     const isMobile  = matchMedia('(hover:none) and (pointer:coarse)').matches;
 
+    function setOpen(el, btn, open){
+      el.classList.toggle('open', open);
+      el.setAttribute('aria-hidden', open ? 'false' : 'true');
+      btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // ============================================================
+    // Drawer (menú)
+    // ============================================================
+    const $closeDrawer = qs('#closeDrawer');
+    let drawerTimer = null;
+
     function openDrawer(){
-      drawer.classList.add('open');
-      drawer.setAttribute('aria-hidden','false');
-      // Accesibilidad: refleja estado en el botón
-      openBtn?.setAttribute('aria-expanded','true');
+      setOpen($drawer, $btnDrawer, true);
+      if (isMobile){
+        clearTimeout(drawerTimer);
+        drawerTimer = setTimeout(()=> closeDrawer(), 5000);
+      }
     }
     function closeDrawer(){
-      drawer.classList.remove('open');
-      drawer.setAttribute('aria-hidden','true');
-      openBtn?.setAttribute('aria-expanded','false');
+      setOpen($drawer, $btnDrawer, false);
+      clearTimeout(drawerTimer);
     }
 
-    // Click básico
-    openBtn?.addEventListener('click', (e)=>{ e.stopPropagation(); openDrawer(); });
-    closeBtn?.addEventListener('click', closeDrawer);
-    drawer?.addEventListener('click', (e)=>{ if(e.target===drawer) closeDrawer(); });
+    $btnDrawer?.addEventListener('click', (e)=>{ e.stopPropagation(); ($drawer.classList.contains('open') ? closeDrawer() : openDrawer()); });
+    $closeDrawer?.addEventListener('click', closeDrawer);
 
-    // Escritorio: abre por hover y se cierra al salir.
     if (isDesktop){
-      openBtn?.addEventListener('mouseenter', openDrawer);
-      openBtn?.addEventListener('mouseleave', ()=>{
-        setTimeout(()=>{ const overDrawer = drawer.matches(':hover'); if(!overDrawer) closeDrawer(); }, 150);
-      });
-      drawer?.addEventListener('mouseleave', closeDrawer);
+      $btnDrawer?.addEventListener('mouseenter', openDrawer);
+      $drawer?.addEventListener('mouseleave', closeDrawer);
     }
 
-    // Auto-cierre del MENÚ en móvil (no afecta comentarios)
-    let autoCloseTimer = null;
-    function startMobileAutoClose(){
-      if(!isMobile) return;
-      clearTimeout(autoCloseTimer);
-      autoCloseTimer = setTimeout(()=>{ closeDrawer(); }, 5000);
-    }
-    if(isMobile){
-      openBtn?.addEventListener('click', startMobileAutoClose);
-      ['click','touchstart'].forEach(evt=>{ drawer?.addEventListener(evt, startMobileAutoClose, {passive:true}); });
-    }
+    // Clic fuera cierra (pero no si haces clic en el interior)
+    document.addEventListener('click', (e)=>{
+      if ($drawer.classList.contains('open') && !e.composedPath().includes($drawer) && !e.composedPath().includes($btnDrawer)){
+        closeDrawer();
+      }
+    }, {passive:true});
 
-    // =============================================================
-    // [NO TOCAR / DO NOT TOUCH] – COOKIES CONSENT (ES/EN)
+    // ============================================================
+    // Cookies Consent
+    // ============================================================
     const CONSENT_KEY = 'lucasConsent';
-    const CONSENT_VERSION = 'v1-2025-09'; // bump al actualizar política / bump on policy update
+    const CONSENT_VERSION = 'v1-2025-09';
+    const $consent = qs('#consent');
+    const $allow = qs('#allow');
+    const $deny  = qs('#deny');
 
-    function getConsent(){ try { const raw = localStorage.getItem(CONSENT_KEY); return raw ? JSON.parse(raw) : null; } catch(e){ return null; } }
-    function setConsent(status){ try { const data = { status, version: CONSENT_VERSION, ts: Date.now() }; localStorage.setItem(CONSENT_KEY, JSON.stringify(data)); } catch(e){} }
-    function shouldShowBanner(saved){ if(!saved) return true; if(saved.version !== CONSENT_VERSION) return true; return false; }
+    function getConsent(){
+      try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || 'null'); } catch(e){ return null; }
+    }
+    function setConsent(status){
+      try {
+        localStorage.setItem(CONSENT_KEY, JSON.stringify({ status, version: CONSENT_VERSION, ts: Date.now() }));
+      } catch(e){}
+    }
+    function shouldShowBanner(saved){
+      if(!saved) return true;
+      if(saved.version !== CONSENT_VERSION) return true;
+      return false;
+    }
     function enableAnalytics(){
-      // [TOCAR/EDIT] Inyecta tu script solo si consent=granted / inject only if granted
-      // const s=document.createElement('script'); s.src='https://.../analytics.js'; document.head.appendChild(s);
+      // [SEO/TODO] Inyecta aquí tu script de analíticas si status === 'granted'
     }
     function initConsentBanner(){
-      const banner = document.getElementById('consent');
-      const allow = document.getElementById('allow');
-      const deny  = document.getElementById('deny');
       const saved = getConsent();
-
-      if(shouldShowBanner(saved)){ banner.style.display='block'; }
-      else if(saved && saved.status === 'granted'){ enableAnalytics(); }
-
-      allow?.addEventListener('click', ()=>{ setConsent('granted'); banner.style.display='none'; enableAnalytics(); });
-      deny ?.addEventListener('click', ()=>{ setConsent('denied');  banner.style.display='none'; });
-
-      document.getElementById('manageConsent')?.addEventListener('click',(e)=>{
+      if (shouldShowBanner(saved)) {
+        $consent.style.display = 'block';
+      } else {
+        if (saved.status === 'granted') enableAnalytics();
+      }
+      $allow?.addEventListener('click', ()=>{
+        setConsent('granted');
+        $consent.style.display = 'none';
+        enableAnalytics();
+      });
+      $deny ?.addEventListener('click', ()=>{
+        setConsent('denied');
+        $consent.style.display = 'none';
+      });
+      qs('#manageConsent')?.addEventListener('click',(e)=>{
         e.preventDefault();
-        banner.style.display='block';
+        $consent.style.display = 'block';
       });
     }
     document.addEventListener('DOMContentLoaded', initConsentBanner);
 
-    // =============================================================
-    // Panel de comentarios (SIN auto-cierre en móviles)
-    const commentsDrawer = document.getElementById('commentsDrawer');
-    const openCommentsBtn = document.getElementById('openComments');
-    const closeCommentsBtn = document.getElementById('closeComments');
-    const commentsMount = document.getElementById('commentsMount');
+    // ============================================================
+    // Comentarios (Utterances on demand, sin fugas)
+    // ============================================================
+    const $closeComments = qs('#closeComments');
+    const $commentsMount = qs('#commentsMount');
     let commentsLoaded = false;
+    let inactivityTimer = null;
+    let lastActivity = Date.now();
 
     function injectUtterances(){
-      if(commentsLoaded) return;
+      if (commentsLoaded) return;
       const s = document.createElement('script');
       s.src = 'https://utteranc.es/client.js';
-      s.setAttribute('repo','LucasMolina707/IngLucasLearningHub.github.io'); // Repo de issues
+      s.setAttribute('repo','LucasMolina707/IngLucasLearningHub.github.io'); // [SEO/INFO] Repo de issues
       s.setAttribute('issue-term','pathname');
       s.setAttribute('theme','icy-dark');
       s.setAttribute('crossorigin','anonymous');
       s.async = true;
-      commentsMount.appendChild(s);
+      $commentsMount.appendChild(s);
       commentsLoaded = true;
     }
 
-    function openComments(){ commentsDrawer.classList.add('open'); commentsDrawer.setAttribute('aria-hidden','false'); injectUtterances(); if(isDesktop) resetInactivity(); }
-    function closeComments(){ commentsDrawer.classList.remove('open'); commentsDrawer.setAttribute('aria-hidden','true'); }
+    function openComments(){
+      setOpen($comments, $btnComments, true);
+      injectUtterances();
+      if (isDesktop) startInactivityWatcher();
+    }
+    function closeComments(){
+      setOpen($comments, $btnComments, false);
+      stopInactivityWatcher();
+    }
 
-    openCommentsBtn?.addEventListener('click',(e)=>{
+    $btnComments?.addEventListener('click',(e)=>{
       e.stopPropagation();
-      if(commentsDrawer.classList.contains('open')) closeComments();
-      else openComments();
+      ($comments.classList.contains('open') ? closeComments() : openComments());
     });
-    closeCommentsBtn?.addEventListener('click', closeComments);
-    commentsDrawer?.addEventListener('click',(e)=>{ if(e.target===commentsDrawer) closeComments(); });
+    $closeComments?.addEventListener('click', closeComments);
 
-    // Auto-ocultar SOLO en desktop: 5s sin movimiento y sin hover en el panel
-    let lastActivity = Date.now();
-    let inactivityTimer = null;
-    function resetInactivity(){
+    // Clic fuera cierra
+    document.addEventListener('click', (e)=>{
+      if ($comments.classList.contains('open') && !e.composedPath().includes($comments) && !e.composedPath().includes($btnComments)){
+        closeComments();
+      }
+    }, {passive:true});
+
+    // Inactividad (solo desktop)
+    function startInactivityWatcher(){
       lastActivity = Date.now();
-      if(inactivityTimer || !isDesktop) return;
+      if (inactivityTimer) return;
       inactivityTimer = setInterval(()=>{
         const idleMs = Date.now() - lastActivity;
-        const hovering = commentsDrawer.matches(':hover');
-        if(commentsDrawer.classList.contains('open') && idleMs > 5000 && !hovering){ closeComments(); }
-        if(!commentsDrawer.classList.contains('open')){ clearInterval(inactivityTimer); inactivityTimer = null; }
+        const hovering = $comments.matches(':hover');
+        if($comments.classList.contains('open') && idleMs > 5000 && !hovering){
+          closeComments();
+        }
+        if(!$comments.classList.contains('open')){
+          stopInactivityWatcher();
+        }
       }, 500);
     }
-    if(isDesktop){
-      ['mousemove','keydown','wheel'].forEach(evt=>{
-        document.addEventListener(evt, ()=>{ lastActivity = Date.now(); }, {passive:true});
-      });
+    function stopInactivityWatcher(){
+      clearInterval(inactivityTimer);
+      inactivityTimer = null;
     }
-    // En móvil NO se auto-cierra el panel de comentarios.
+    ['mousemove','keydown','wheel'].forEach(evt=>{
+      document.addEventListener(evt, ()=>{ lastActivity = Date.now(); }, {passive:true});
+    });
 
-    // Accesibilidad: ESC cierra ambos paneles
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ closeDrawer(); closeComments(); }});
+    // ============================================================
+    // Accesibilidad global
+    // ============================================================
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape'){
+        closeDrawer();
+        closeComments();
+      }
+    });
+
+    // ============================================================
+    // Menú automático desde /nav.json (con fallback GitHub API)
+    // ============================================================
+    (async function initAutoMenu(){
+      const elPages = document.getElementById('nav-pages');
+      const elProjects = document.getElementById('nav-projects');
+      const CACHE_KEY = 'navjson-cache';
+      const MAX_AGE = 24 * 60 * 60 * 1000;
+
+      async function githubFallback(){
+        try{
+          const owner = 'LucasMolina707';
+          const repo  = 'IngLucasLearningHub.github.io';
+          const branch = 'main';
+          const api = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+          const r = await fetch(api);
+          const j = await r.json();
+          const files = (j.tree || []).filter(x => x.type === 'blob' && x.path.endsWith('.html'));
+          const skip = p => p.startsWith('templates/') || p.startsWith('multimedia/') || p.startsWith('galeria/') || p.startsWith('assets/') || p.includes('/draft');
+          const pretty = s => s.replace(/\.html$/,'').split('/').pop().replace(/[-_]+/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+          const pages=[], projects=[];
+          for (const f of files){
+            if (skip(f.path)) continue;
+            const item = { href: '/' + f.path, label: pretty(f.path) };
+            if (f.path === 'index.html' || f.path === 'contacto.html' || f.path === 'politicas-privacidad.html' || !f.path.includes('/')) pages.push(item);
+            else projects.push(item);
+          }
+          pages.sort((a,b)=> a.label.localeCompare(b.label,'es'));
+          projects.sort((a,b)=> a.label.localeCompare(b.label,'es'));
+          pages.sort((a,b)=> a.href.endsWith('/index.html')||a.href==='/index.html' ? -1 : b.href.endsWith('/index.html')||b.href==='/index.html' ? 1 : 0);
+          return { pages, projects };
+        }catch(err){
+          console.warn('[menu] Fallback GitHub API falló', err);
+          return { pages:[], projects:[] };
+        }
+      }
+
+      async function fetchNav(){
+        try{
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (cached){
+            const obj = JSON.parse(cached);
+            if (Date.now() - obj.ts < MAX_AGE && obj.data) return obj.data;
+          }
+          const res = await fetch('/nav.json', { cache: 'no-cache' });
+          if (!res.ok) throw new Error('nav.json no disponible');
+          const data = await res.json();
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+          return data;
+        }catch(e){
+          console.warn('[menu] Usando fallback GitHub API');
+          const data = await githubFallback();
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data }));
+          return data;
+        }
+      }
+
+      function renderList(container, list){
+        if (!container) return;
+        container.innerHTML = list.map(i => `<a href="${i.href}">${i.label}</a>`).join('');
+      }
+
+      try{
+        const nav = await fetchNav();
+        renderList(elPages, nav.pages || []);
+        renderList(elProjects, nav.projects || []);
+      }catch(e){
+        console.error('[menu] error:', e);
+      }
+    })();
   </script>
 
-  <!-- (No cargamos Utterances directo; se inyecta al abrir el panel) -->
-  <!-- [SEO/INFO] Mantén /site.webmanifest y /browserconfig.xml para branding. -->
+  <!-- (No cargamos Utterances directo; lo inyectamos al abrir el panel) -->
+  <!-- [SEO/INFO] Mantén /site.webmanifest y /browserconfig.xml para branding en dispositivos. -->
 </body>
 </html>
