@@ -1,0 +1,26 @@
+/assets/
+│
+├─ /icons/                  ← íconos de redes sociales en SVG
+│   ├─ github.svg
+│   ├─ linkedin.svg
+│   ├─ twitter.svg
+│   ├─ instagram.svg
+│   └─ correo.svg
+│
+├─ /logo/                   ← logo de tu marca en distintos formatos
+│   ├─ logo.svg             ← principal (vectorial)
+│   ├─ logo.png             ← transparente, para cabecera/footer
+│   ├─ logo-dark.png        ← variante para fondos claros
+│   └─ logo-light.png       ← variante para fondos oscuros
+│
+├─ /favicon/                ← favicons y PWA
+│   ├─ favicon.ico          ← 16x16 y 32x32
+│   ├─ favicon-16x16.png
+│   ├─ favicon-32x32.png
+│   ├─ apple-touch-icon.png (180x180)
+│   ├─ android-chrome-192x192.png
+│   └─ android-chrome-512x512.png
+│
+└─ /og/                     ← imágenes para redes sociales
+    ├─ og-cover.webp        ← 1200x630 (para WhatsApp/Facebook/Twitter)
+    └─ og-square.webp       ← 1080x1080 (para Instagram/cuadrado)
