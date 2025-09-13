@@ -32,9 +32,13 @@
   <header class="ilh-hero">
     <div class="ilh-hero__overlay"></div>
     <div class="ilh-hero__content">
-      <h1 class="ilh-title">Ing. Lucas Molina</h1>
+      <h1 class="ilh-title">Ing. Lucas Molina · Learning Hub</h1>
       <p class="ilh-subtitle">Estudiante de Ingeniería Informática · Desarrollador Web</p>
-      <a class="ilh-btn ilh-btn--primary" href="#proyectos">Ver proyectos</a>
+      <!-- Lema en banner central -->
+      <p class="ilh-motto" style="margin:.5rem 0 1.25rem; font-weight:600; opacity:.98;">
+        “Aprendiendo a ser ingeniero, un proyecto a la vez”
+      </p>
+      <a class="ilh-btn ilh-btn--primary" href="#proyectos">Explorar proyectos</a>
     </div>
   </header>
 
@@ -63,6 +67,65 @@
 
   <!-- MAIN -->
   <main class="ilh-main">
+
+    <!-- Bienvenida -->
+    <section class="ilh-section ilh-bienvenida" style="margin-bottom:2rem">
+      <h2 style="margin-top:0">Bienvenido 👋</h2>
+      <p style="max-width:70ch">
+        Aquí registro mis avances, experimentos y reflexiones en el camino como ingeniero informático.
+        Este sitio es mi bitácora de proyectos: un lugar para aprender, documentar y compartir.
+      </p>
+    </section>
+
+    <!-- Propósito del sitio -->
+    <section class="ilh-section ilh-proposito" style="margin-bottom:2rem">
+      <h2>Propósito del sitio</h2>
+      <ul style="margin:.75rem 0 0; padding-left:1.1rem">
+        <li>Documentar mi proceso de aprendizaje en la universidad y en proyectos personales.</li>
+        <li>Centralizar bitácoras de prácticas: servidores, desarrollo web, apps y ciberseguridad.</li>
+        <li>Mostrar un portafolio vivo que refleje evolución y estilo propio.</li>
+        <li>Ofrecer recursos útiles: plantillas, scripts y guías.</li>
+      </ul>
+    </section>
+
+    <!-- Secciones destacadas -->
+    <section class="ilh-section ilh-destacados" style="margin-bottom:2rem">
+      <h2>Secciones destacadas</h2>
+      <div class="ilh-grid" style="display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:.75rem">
+        <a class="ilh-card" href="#proyectos" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+          <h3 style="margin:.2rem 0">📂 Proyectos</h3>
+          <p style="margin:0; color:var(--ilh-muted)">Trabajos en programación, servidores y desarrollo web.</p>
+        </a>
+
+        <a class="ilh-card" href="/bitacoras.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+          <h3 style="margin:.2rem 0">📓 Bitácoras</h3>
+          <p style="margin:0; color:var(--ilh-muted)">Registros paso a paso de pruebas y configuraciones.</p>
+        </a>
+
+        <a class="ilh-card" href="/recursos.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+          <h3 style="margin:.2rem 0">📚 Recursos</h3>
+          <p style="margin:0; color:var(--ilh-muted)">Plantillas, macros, algoritmos y guías.</p>
+        </a>
+
+        <a class="ilh-card" href="/sobre-mi.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+          <h3 style="margin:.2rem 0">👤 Sobre mí</h3>
+          <p style="margin:0; color:var(--ilh-muted)">Perfil breve como estudiante y desarrollador.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Invitación -->
+    <section class="ilh-section ilh-invitacion" style="margin-bottom:2rem">
+      <h2>Te invito a explorar</h2>
+      <p style="max-width:70ch">
+        Cada proyecto aquí es una pieza más en el camino de convertirme en ingeniero.
+        Te invito a explorar, aprender y compartir este viaje.
+      </p>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap">
+        <a class="ilh-btn ilh-btn--primary" href="#proyectos">Ver Proyectos</a>
+        <a class="ilh-btn ilh-btn--ghost" href="/contacto.html">Contactar</a>
+      </div>
+    </section>
 
     <!-- Panel lateral de comentarios -->
     <aside class="ilh-comments" id="commentsPanel" aria-hidden="true">
@@ -103,10 +166,12 @@
         <svg viewBox="0 0 24 24" class="ilh-icon"><path d="M12 13 2 6.76V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6.76L12 13ZM12 11 22 5H2l10 6Z"/></svg>
       </a>
     </div>
-    <p class="ilh-footer__copy">© 2025 Ing. Lucas Learning Hub • Mobile-first • Villavicencio, Colombia</p>
+    <p class="ilh-footer__copy">
+      © 2025 Ing. Lucas Learning Hub • Mobile-first • Villavicencio, Colombia<br/>
+      <span style="opacity:.9">“Aprendiendo a ser ingeniero, un proyecto a la vez”</span>
+    </p>
   </footer>
 
   <script src="/js/app.js" defer></script>
 </body>
 </html>
-
