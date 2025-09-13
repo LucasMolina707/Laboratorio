@@ -6,21 +6,21 @@
   <title>Ing. Lucas Learning Hub — Portafolio & Bitácora</title>
   <meta name="description" content="Portafolio y bitácora de Ing. Lucas Molina — estudiante de Ingeniería Informática (AUNAR). Proyectos de programación, sistemas, web y más.">
   <meta name="robots" content="index, follow">
-  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
 
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ing. Lucas Learning Hub">
   <meta property="og:title" content="Ing. Lucas Learning Hub — Portafolio & Bitácora">
   <meta property="og:description" content="Proyectos, prácticas y aprendizaje continuo en ingeniería informática.">
-  <meta property="og:image" content="https://hub.inglucas.com.co/assets/og-cover.webp">
+  <meta property="og:image" content="https://hub.inglucas.com.co/assets/og/og-cover.webp">
   <meta property="og:url" content="https://hub.inglucas.com.co/">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ing. Lucas Learning Hub — Portafolio & Bitácora">
   <meta name="twitter:description" content="Proyectos, prácticas y aprendizaje continuo en ingeniería informática.">
-  <meta name="twitter:image" content="https://hub.inglucas.com.co/assets/og-cover.webp">
+  <meta name="twitter:image" content="https://hub.inglucas.com.co/assets/og/og-cover.webp">
 
   <!-- Preload patrón de logo + CSS -->
   <link rel="preload" href="/assets/logo-pattern.webp" as="image" />
@@ -28,58 +28,54 @@
 </head>
 <body class="ilh-body">
 
-  <!-- HERO (fondo con degradado y patrón de logo) -->
-  <header class="ilh-hero">
+  <!-- HERO (presentación) -->
+  <header class="ilh-hero" role="banner" aria-label="Presentación">
     <div class="ilh-hero__overlay"></div>
     <div class="ilh-hero__content">
       <h1 class="ilh-title">Ing. Lucas Molina · Learning Hub</h1>
       <p class="ilh-subtitle">Estudiante de Ingeniería Informática · Desarrollador Web</p>
-      <!-- Lema en banner central -->
       <p class="ilh-motto" style="margin:.5rem 0 1.25rem; font-weight:600; opacity:.98;">
         “Aprendiendo a ser ingeniero, un proyecto a la vez”
       </p>
-      <a class="ilh-btn ilh-btn--primary" href="#proyectos">Explorar proyectos</a>
+      <a class="ilh-btn ilh-btn--primary" href="/#destacados" aria-label="Ir a secciones destacadas">Explorar proyectos</a>
     </div>
   </header>
 
   <!-- NAV -->
-  <nav class="ilh-nav">
+  <nav class="ilh-nav" role="navigation" aria-label="Principal">
     <div class="ilh-nav__inner">
       <a class="ilh-nav__brand" href="/">Learning Hub</a>
-      <button class="ilh-nav__toggle" aria-label="Menú">☰</button>
+      <button class="ilh-nav__toggle" aria-label="Abrir menú">☰</button>
       <ul class="ilh-nav__menu">
         <li><a class="ilh-nav__link" href="/">Inicio</a></li>
         <li><a class="ilh-nav__link" href="/contacto.html">Contactos</a></li>
         <li><a class="ilh-nav__link" href="/politicas.html">Políticas de Privacidad</a></li>
-
-        <!-- Proyectos (dropdown dinámico) -->
+        <!-- Proyectos (dropdown dinámico; si no usas manifest aún, puedes quitarlo o dejarlo) -->
         <li class="ilh-nav__item--has-sub">
-          <button class="ilh-nav__link ilh-nav__btn" id="btnProyectos" aria-expanded="false">
-            Proyectos
-          </button>
+          <button class="ilh-nav__link ilh-nav__btn" id="btnProyectos" aria-expanded="false">Proyectos</button>
           <div class="ilh-submenu" id="submenuProyectos">
-            <div class="ilh-submenu__content" id="submenuContent"><!-- se rellena via JS --></div>
+            <div class="ilh-submenu__content" id="submenuContent"><!-- se rellena via JS (opcional) --></div>
           </div>
         </li>
       </ul>
     </div>
   </nav>
 
-  <!-- MAIN -->
-  <main class="ilh-main">
+  <!-- MAIN (solo presentación) -->
+  <main class="ilh-main" id="contenido">
 
     <!-- Bienvenida -->
-    <section class="ilh-section ilh-bienvenida" style="margin-bottom:2rem">
-      <h2 style="margin-top:0">Bienvenido 👋</h2>
+    <section class="ilh-section ilh-bienvenida" style="margin-bottom:2rem" aria-labelledby="bienvenida-title">
+      <h2 id="bienvenida-title" style="margin-top:0">Bienvenido 👋</h2>
       <p style="max-width:70ch">
-        Aquí registro mis avances, experimentos y reflexiones en el camino como ingeniero informático.
-        Este sitio es mi bitácora de proyectos: un lugar para aprender, documentar y compartir.
+        Bienvenido a mi espacio digital. Aquí registro mi camino en la ingeniería informática, paso a paso y proyecto a proyecto.
+        Este sitio reúne mis bitácoras, experimentos, aprendizajes y desarrollos, con la idea de compartir y construir en comunidad.
       </p>
     </section>
 
     <!-- Propósito del sitio -->
-    <section class="ilh-section ilh-proposito" style="margin-bottom:2rem">
-      <h2>Propósito del sitio</h2>
+    <section class="ilh-section ilh-proposito" style="margin-bottom:2rem" aria-labelledby="proposito-title">
+      <h2 id="proposito-title">Propósito del sitio</h2>
       <ul style="margin:.75rem 0 0; padding-left:1.1rem">
         <li>Documentar mi proceso de aprendizaje en la universidad y en proyectos personales.</li>
         <li>Centralizar bitácoras de prácticas: servidores, desarrollo web, apps y ciberseguridad.</li>
@@ -89,72 +85,45 @@
     </section>
 
     <!-- Secciones destacadas -->
-    <section class="ilh-section ilh-destacados" style="margin-bottom:2rem">
-      <h2>Secciones destacadas</h2>
+    <section id="destacados" class="ilh-section ilh-destacados" style="margin-bottom:2rem" aria-labelledby="destacados-title">
+      <h2 id="destacados-title">Secciones destacadas</h2>
       <div class="ilh-grid" style="display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:.75rem">
-        <a class="ilh-card" href="#proyectos" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+        <a class="ilh-card" href="/#proyectos" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)" aria-label="Ver Proyectos">
           <h3 style="margin:.2rem 0">📂 Proyectos</h3>
           <p style="margin:0; color:var(--ilh-muted)">Trabajos en programación, servidores y desarrollo web.</p>
         </a>
-
-        <a class="ilh-card" href="/bitacoras.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+        <a class="ilh-card" href="/bitacoras.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)" aria-label="Ver Bitácoras">
           <h3 style="margin:.2rem 0">📓 Bitácoras</h3>
-          <p style="margin:0; color:var(--ilh-muted)">Registros paso a paso de pruebas y configuraciones.</p>
+          <p style="margin:0; color:var(--ilh-muted)">Registros paso a paso de pruebas, configuraciones y aprendizajes.</p>
         </a>
-
-        <a class="ilh-card" href="/recursos.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+        <a class="ilh-card" href="/recursos.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)" aria-label="Ver Recursos">
           <h3 style="margin:.2rem 0">📚 Recursos</h3>
-          <p style="margin:0; color:var(--ilh-muted)">Plantillas, macros, algoritmos y guías.</p>
+          <p style="margin:0; color:var(--ilh-muted)">Material práctico: plantillas, macros, algoritmos y guías.</p>
         </a>
-
-        <a class="ilh-card" href="/sobre-mi.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)">
+        <a class="ilh-card" href="/sobre-mi.html" style="text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:1rem; box-shadow:var(--ilh-shadow)" aria-label="Ver Sobre mí">
           <h3 style="margin:.2rem 0">👤 Sobre mí</h3>
-          <p style="margin:0; color:var(--ilh-muted)">Perfil breve como estudiante y desarrollador.</p>
+          <p style="margin:0; color:var(--ilh-muted)">Presentación breve como estudiante y desarrollador.</p>
         </a>
       </div>
     </section>
 
     <!-- Invitación -->
-    <section class="ilh-section ilh-invitacion" style="margin-bottom:2rem">
-      <h2>Te invito a explorar</h2>
+    <section class="ilh-section ilh-invitacion" style="margin-bottom:2rem" aria-labelledby="invitacion-title">
+      <h2 id="invitacion-title">Te invito a explorar</h2>
       <p style="max-width:70ch">
         Cada proyecto aquí es una pieza más en el camino de convertirme en ingeniero.
         Te invito a explorar, aprender y compartir este viaje.
       </p>
       <div style="display:flex; gap:.5rem; flex-wrap:wrap">
-        <a class="ilh-btn ilh-btn--primary" href="#proyectos">Ver Proyectos</a>
-        <a class="ilh-btn ilh-btn--ghost" href="/contacto.html">Contactar</a>
+        <a class="ilh-btn ilh-btn--primary" href="/#proyectos" aria-label="Ver Proyectos">Ver Proyectos</a>
+        <a class="ilh-btn ilh-btn--ghost" href="/contacto.html" aria-label="Ir a Contacto">Contactar</a>
       </div>
     </section>
 
-    <!-- Panel lateral de comentarios -->
-    <aside class="ilh-comments" id="commentsPanel" aria-hidden="true">
-      <button class="ilh-comments__close" id="closeComments" aria-label="Cerrar comentarios">✕</button>
-      <h3>Comentarios</h3>
-      <div id="commentsMount" class="ilh-comments__mount"><!-- Utterances se inyecta aquí --></div>
-    </aside>
-
-    <!-- Barra de acciones -->
-    <section class="ilh-actions">
-      <button id="openComments" class="ilh-btn ilh-btn--ghost">💬 Ver comentarios</button>
-      <span class="ilh-hint">Estados de proyectos: manual desde tu admin.</span>
-    </section>
-
-    <!-- Vista de proyectos (encapsulado con iframe) -->
-    <section id="proyectos" class="ilh-projects">
-      <div class="ilh-projects__header">
-        <h2>Proyectos</h2>
-        <p>Elige un proyecto del menú para cargarlo aquí (no rompe la plantilla).</p>
-      </div>
-
-      <div class="ilh-iframe-wrap">
-        <iframe id="projectFrame" title="Proyecto" loading="lazy" referrerpolicy="no-referrer"></iframe>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="ilh-footer">
+  <footer class="ilh-footer" role="contentinfo">
     <div class="ilh-footer__links">
       <a class="ilh-iconbtn" href="https://github.com/tu_usuario" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 24 24" class="ilh-icon"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.35-1.77-1.35-1.77-1.11-.76.08-.75.08-.75 1.23.09 1.87 1.26 1.87 1.26 1.09 1.86 2.86 1.32 3.56 1.01.11-.8.43-1.32.78-1.63-2.66-.3-5.46-1.34-5.46-5.97 0-1.32.47-2.4 1.24-3.25-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.24a11.45 11.45 0 0 1 6 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.69.24 2.94.12 3.25.77.85 1.24 1.93 1.24 3.25 0 4.64-2.8 5.66-5.47 5.96.44.38.83 1.1.83 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
@@ -172,6 +141,7 @@
     </p>
   </footer>
 
+  <!-- JS opcional (para menú móvil y dropdown Proyectos) -->
   <script src="/js/app.js" defer></script>
 </body>
 </html>
