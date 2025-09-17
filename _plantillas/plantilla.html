@@ -8,16 +8,19 @@
   <title>Ing. Lucas Molina · Learning Hub — Plantilla Base</title>
   <meta name="description" content="Plantilla base del sitio Ing. Lucas Learning Hub: topbar, menú lateral, panel de comentarios, banner de cookies, footer e internacionalización ES/EN." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
   <link rel="canonical" href="https://hub.inglucas.com.co/">
   <link rel="alternate" hreflang="es-co" href="https://hub.inglucas.com.co/">
   <link rel="alternate" hreflang="es" href="https://hub.inglucas.com.co/">
-  <link rel="icon" href="/galeria/logo/logoinglucas.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/galeria/logo/logoinglucas.svg">
-  <link rel="icon" type="image/png" sizes="192x192" href="/galeria/logo/logoinglucas.png">
-  <link rel="apple-touch-icon" href="/galeria/logo/logoinglucas.png">
-  <link rel="mask-icon" href="/galeria/logo/logoinglucas.svg" color="#2563eb">
-  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.png">
+  <link rel="apple-touch-icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.png">
+  <link rel="mask-icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.svg" color="#2563eb">
+  <link rel="manifest" href="https://hub.inglucas.com.co/site.webmanifest">
   <meta name="theme-color" content="#0d47a1" />
+
   <meta property="og:title" content="Ing. Lucas Molina · Learning Hub">
   <meta property="og:description" content="Proyectos y bitácora de un estudiante de Ingeniería Informática en Colombia.">
   <meta property="og:image" content="https://hub.inglucas.com.co/multimedia/cover-og.webp">
@@ -29,6 +32,7 @@
   <meta name="twitter:title" content="Ing. Lucas Molina · Learning Hub">
   <meta name="twitter:description" content="Proyectos y bitácora de un estudiante de Ingeniería Informática en Colombia.">
   <meta name="twitter:image" content="https://hub.inglucas.com.co/multimedia/cover-og.webp">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,18 +42,15 @@
         "@id": "https://hub.inglucas.com.co/#lucas",
         "name": "Ing. Lucas Molina",
         "alternateName": ["Ing Lucas", "Lucas Molina", "Estudiante Lucas Molina", "Ingeniero Lucas", "Ingeniero Lucas Molina", "Ing. Lucas Learning Hub"],
-        "description": "Estudiante de Ingeniería Informática y creador de Ing. Lucas Learning Hub en Colombia.",
         "url": "https://hub.inglucas.com.co/",
         "image": "https://hub.inglucas.com.co/galeria/logo/logoinglucas.jpg",
-        "sameAs": ["https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas", "https://instagram.com/IngLucas", "https://facebook.com/IngLucas"],
-        "nationality": "CO"
+        "sameAs": ["https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas", "https://instagram.com/IngLucas", "https://facebook.com/IngLucas"]
       },
       {
         "@type": "WebSite",
         "@id": "https://hub.inglucas.com.co/#website",
         "name": "Ing. Lucas Learning Hub",
         "url": "https://hub.inglucas.com.co/",
-        "inLanguage": "es-CO",
         "publisher": { "@id": "https://hub.inglucas.com.co/#organization" }
       },
       {
@@ -62,10 +63,11 @@
     ]
   }
   </script>
+
   <link rel="stylesheet" href="/assets/css/plantilla.css">
 </head>
 <body>
-  <div class="topbar">
+  <header class="topbar">
     <div class="wrap row">
       <a class="logo" href="/" aria-label="Inicio · Ing. Lucas Learning Hub"><picture><source srcset="/galeria/logo/logoinglucas.svg" type="image/svg+xml"><img src="/galeria/logo/logoinglucas.png" alt="Logo Ing. Lucas" width="36" height="36" loading="eager" fetchpriority="high"></picture></a>
       <div class="brand"><strong>Ing. Lucas Learning Hub</strong><span class="i18n-es">Plantilla Base</span><span class="i18n-en">Base Template</span></div>
@@ -75,7 +77,7 @@
         <button class="icon-btn" id="langToggle" title="Cambiar idioma" aria-label="Cambiar idioma" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.73 6h-3.46a15.9 15.9 0 0 0-1.6-3.63A8.03 8.03 0 0 1 19.73 8zM12 4c.88 0 2.39 1.88 3.23 4H8.77C9.61 5.88 11.12 4 12 4zM4.27 8A8.03 8.03 0 0 1 9.33 4.37 15.9 15.9 0 0 0 7.73 8H4.27zM4 10h3.16c-.08.66-.13 1.32-.13 2s.05 1.34.13 2H4a8 8 0 0 1 0-4zm.27 6h3.46c.4 1.28.95 2.49 1.6 3.63A8.03 8.03 0 0 1 4.27 16zM12 20c-.88 0-2.39-1.88-3.23-4h6.46C14.39 18.12 12.88 20 12 20zm2.67-.37c.65-1.14 1.2-2.35 1.6-3.63h3.46a8.03 8.03 0 0 1-5.06 3.63zM20 14h-3.16c.08-.66.13-1.32.13-2s-.05-1.34-.13-2H20a8 8 0 0 1 0 4z"/></svg><span class="lang-chip" id="langChip" aria-hidden="true">ES</span></button>
       </div>
     </div>
-  </div>
+  </header>
   <aside class="drawer" id="drawer" aria-label="Menú de navegación" aria-hidden="true">
     <div class="hd"><strong class="i18n-es">Navegación</strong><strong class="i18n-en">Navigation</strong><button class="btn" id="closeDrawer" aria-label="Cerrar">Cerrar ✕</button></div>
     <div class="bd">
@@ -84,7 +86,11 @@
       <div class="nav-group"><h4 class="i18n-es">Ventanas / Proyectos</h4><h4 class="i18n-en">Windows / Projects</h4><nav class="nav" id="nav-projects"></nav></div>
     </div>
   </aside>
-  <div class="wrap workspace">
+  <aside class="comments-drawer" id="commentsDrawer" aria-label="Comentarios" aria-hidden="true">
+    <div class="hd"><strong class="i18n-es">Comentarios</strong><strong class="i18n-en">Comments</strong><button class="btn" id="closeComments" aria-label="Cerrar comentarios">Cerrar ✕</button></div>
+    <div class="bd"><div id="commentsMount" aria-live="polite"></div></div>
+  </aside>
+  <main class="wrap workspace">
     <section class="window" role="region" aria-label="Contenido principal">
       <div class="window-titlebar">
         <div class="title-left">
@@ -102,7 +108,7 @@
         </footer>
       </div>
     </section>
-  </div>
+  </main>
   <footer>
     <div class="wrap foot">
       <div>© <span id="y"></span> IngLucas · Ing. Lucas Learning Hub · Colombia</div>
