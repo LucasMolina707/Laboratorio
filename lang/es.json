@@ -1,0 +1,21 @@
+{
+  "template_subtitle": "Plantilla Base",
+  "nav_title": "Navegación",
+  "nav_close": "Cerrar ✕",
+  "nav_search_placeholder": "Buscar en el menú...",
+  "nav_pages_title": "Páginas",
+  "nav_projects_title": "Ventanas / Proyectos",
+  "comments_title": "Comentarios",
+  "comments_close": "Cerrar ✕",
+  "window_title_placeholder": "Título del Proyecto",
+  "window_path_placeholder": "Ruta > Mi Proyecto",
+  "pane_template_title": "🌱 Plantilla lista",
+  "pane_template_text": "Este espacio está listo para tu módulo. Mantén tus estilos y JS **encapsulados**.",
+  "project_note_tag": "🧩 Proyecto",
+  "project_note_title": "[TOCAR] Título del proyecto",
+  "project_note_text": "[TOCAR] Nota fija: objetivos, pendientes o changelog.",
+  "footer_manage_cookies": "Preferencias de cookies",
+  "footer_privacy_policy": "Políticas de Privacidad",
+  "footer_copyright": "© {year} IngLucas · Ing. Lucas Learning Hub · Colombia",
+  "footer_custom_text": "— Un proyecto en constante evolución."
+}
