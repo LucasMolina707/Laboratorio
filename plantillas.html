@@ -8,17 +8,17 @@
   <title>Ing. Lucas Molina · Learning Hub — Plantilla Base</title>
   <meta name="description" content="Plantilla base del sitio Ing. Lucas Learning Hub: topbar, menú lateral, panel de comentarios, banner de cookies, footer e internacionalización ES/EN." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  
+
   <link rel="canonical" href="https://hub.inglucas.com.co/">
   <link rel="alternate" hreflang="es-co" href="https://hub.inglucas.com.co/">
   <link rel="alternate" hreflang="es" href="https://hub.inglucas.com.co/">
 
-  <link rel="icon" href="/galeria/logo/logoinglucas.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/galeria/logo/logoinglucas.svg">
-  <link rel="icon" type="image/png" sizes="192x192" href="/galeria/logo/logoinglucas.png">
-  <link rel="apple-touch-icon" href="/galeria/logo/logoinglucas.png">
-  <link rel="mask-icon" href="/galeria/logo/logoinglucas.svg" color="#2563eb">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.png">
+  <link rel="apple-touch-icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.png">
+  <link rel="mask-icon" href="https://hub.inglucas.com.co/galeria/logo/logoinglucas.svg" color="#2563eb">
+  <link rel="manifest" href="https://hub.inglucas.com.co/site.webmanifest">
   <meta name="theme-color" content="#0d47a1" />
 
   <meta property="og:title" content="Ing. Lucas Molina · Learning Hub">
@@ -42,18 +42,15 @@
         "@id": "https://hub.inglucas.com.co/#lucas",
         "name": "Ing. Lucas Molina",
         "alternateName": ["Ing Lucas", "Lucas Molina", "Estudiante Lucas Molina", "Ingeniero Lucas", "Ingeniero Lucas Molina", "Ing. Lucas Learning Hub"],
-        "description": "Estudiante de Ingeniería Informática y creador de Ing. Lucas Learning Hub en Colombia.",
         "url": "https://hub.inglucas.com.co/",
         "image": "https://hub.inglucas.com.co/galeria/logo/logoinglucas.jpg",
-        "sameAs": ["https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas", "https://instagram.com/IngLucas", "https://facebook.com/IngLucas"],
-        "nationality": "CO"
+        "sameAs": ["https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas", "https://instagram.com/IngLucas", "https://facebook.com/IngLucas"]
       },
       {
         "@type": "WebSite",
         "@id": "https://hub.inglucas.com.co/#website",
         "name": "Ing. Lucas Learning Hub",
         "url": "https://hub.inglucas.com.co/",
-        "inLanguage": "es-CO",
         "publisher": { "@id": "https://hub.inglucas.com.co/#organization" }
       },
       {
@@ -81,7 +78,6 @@
       </div>
     </div>
   </header>
-
   <aside class="drawer" id="drawer" aria-label="Menú de navegación" aria-hidden="true">
     <div class="hd"><strong class="i18n-es">Navegación</strong><strong class="i18n-en">Navigation</strong><button class="btn" id="closeDrawer" aria-label="Cerrar">Cerrar ✕</button></div>
     <div class="bd">
@@ -90,12 +86,10 @@
       <div class="nav-group"><h4 class="i18n-es">Ventanas / Proyectos</h4><h4 class="i18n-en">Windows / Projects</h4><nav class="nav" id="nav-projects"></nav></div>
     </div>
   </aside>
-
   <aside class="comments-drawer" id="commentsDrawer" aria-label="Comentarios" aria-hidden="true">
     <div class="hd"><strong class="i18n-es">Comentarios</strong><strong class="i18n-en">Comments</strong><button class="btn" id="closeComments" aria-label="Cerrar comentarios">Cerrar ✕</button></div>
     <div class="bd"><div id="commentsMount" aria-live="polite"></div></div>
   </aside>
-
   <main class="wrap workspace">
     <section class="window" role="region" aria-label="Contenido principal">
       <div class="window-titlebar">
@@ -115,31 +109,11 @@
       </div>
     </section>
   </main>
-
   <footer>
     <div class="wrap foot">
-      <div>
-        <div class="socials">
-          <a class="chip" href="https://facebook.com/IngLucas" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.01 3.66 9.16 8.44 9.94v-7.03H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.86h2.77l-.44 2.91h-2.33V22c4.78-.78 8.44-4.93 8.44-9.94z"/></svg></a>
-          <a class="chip" href="https://instagram.com/IngLucas" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 0 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11.001 5.5 5.5 0 0 1 0-11zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-5.5 2a3.5 3.5 0 1 0 0 7.001A3.5 3.5 0 0 0 12 8z"/></svg></a>
-          <a class="chip" href="https://github.com/IngLucas" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.09-.74.09-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.86 2.83 1.32 3.52 1.01.11-.79.42-1.32.76-1.62-2.67-.31-5.48-1.34-5.48-5.95 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.7.24 2.96.12 3.27.77.84 1.23 1.91 1.23 3.22 0 4.62-2.82 5.64-5.5 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg></a>
-          <a class="chip" href="https://www.linkedin.com/in/IngLucas" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.6c0-1.34-.03-3.07-1.87-3.07-1.88 0-2.17 1.46-2.17 2.97v5.7H9.31V9h3.56v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.42v6.32zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
-          <a class="chip" href="#" id="manageConsent">Preferencias de cookies</a>
-        </div>
-        <div style="margin-top:10px"><a href="/politicas-privacidad.html">Políticas de Privacidad</a></div>
-      </div>
-      <div>© <span id="y"></span> IngLucas · Ing. Lucas Learning Hub · Colombia<div id="custom-text" style="margin-top:8px; font-size:0.92em; opacity:.85;">— Un proyecto en constante evolución.</div></div>
+      <div>© <span id="y"></span> IngLucas · Ing. Lucas Learning Hub · Colombia</div>
     </div>
   </footer>
-
-  <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
-    <div class="card"><div class="row">
-        <p><span class="i18n-es">Usamos <strong>cookies esenciales</strong> y, con tu permiso, <strong>analíticas</strong> para mejorar la experiencia. Consulta la <a href="/politicas-privacidad.html" target="_self">Política de Privacidad</a>.</span><span class="i18n-en">We use <strong>essential cookies</strong> and, with your permission, <strong>analytics</strong> to improve the experience. See our <a href="/politicas-privacidad.html" target="_self">Privacy Policy</a>.</span></p>
-        <div class="actions"><button class="btn" id="deny"><span class="i18n-es">Rechazar</span><span class="i18n-en">Decline</span></button><button class="btn primary" id="allow"><span class="i18n-es">Aceptar</span><span class="i18n-en">Accept</span></button></div>
-    </div></div>
-  </div>
-  <noscript><div style="position:fixed;left:0;right:0;bottom:0;background:#0f172a;color:#e6efff;border-top:1px solid #243b64;padding:10px 14px;font:14px/1.4 system-ui">Este sitio requiere JavaScript para una funcionalidad completa.</div></noscript>
-  
   <script src="/assets/js/plantilla.js"></script>
 </body>
 </html>
