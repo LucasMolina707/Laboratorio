@@ -55,23 +55,8 @@
         "sameAs": [ "https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas", "https://instagram.com/IngLucas", "https://facebook.com/IngLucas" ],
         "nationality": "CO"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://hub.inglucas.com.co/#website",
-        "name": "Ing. Lucas Learning Hub",
-        "url": "https://hub.inglucas.com.co/",
-        "inLanguage": "es-CO",
-        "publisher": { "@id": "https://hub.inglucas.com.co/#organization" },
-        "potentialAction": { "@type": "SearchAction", "target": "https://hub.inglucas.com.co/?q={search_term_string}", "query-input": "required name=search_term_string" }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://hub.inglucas.com.co/#organization",
-        "name": "Ing. Lucas Learning Hub",
-        "url": "https://hub.inglucas.com.co/",
-        "logo": { "@type": "ImageObject", "url": "/galeria/logo/logoinglucas.png" },
-        "sameAs": [ "https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas" ]
-      }
+      { "@type": "WebSite", "@id": "https://hub.inglucas.com.co/#website", "name": "Ing. Lucas Learning Hub", "url": "https://hub.inglucas.com.co/", "inLanguage": "es-CO", "publisher": { "@id": "https://hub.inglucas.com.co/#organization" }, "potentialAction": { "@type": "SearchAction", "target": "https://hub.inglucas.com.co/?q={search_term_string}", "query-input": "required name=search_term_string" }},
+      { "@type": "Organization", "@id": "https://hub.inglucas.com.co/#organization", "name": "Ing. Lucas Learning Hub", "url": "https://hub.inglucas.com.co/", "logo": { "@type": "ImageObject", "url": "/galeria/logo/logoinglucas.png" }, "sameAs": [ "https://github.com/IngLucas", "https://www.linkedin.com/in/IngLucas" ]}
     ]
   }
   </script>
@@ -87,89 +72,46 @@
 <body>
   <div class="topbar">
     <div class="wrap row">
-      <a class="logo" href="/" aria-label="Inicio · Ing. Lucas Learning Hub">
-        <picture>
-          <source srcset="/galeria/logo/logoinglucas.svg" type="image/svg+xml">
-          <img src="/galeria/logo/logoinglucas.png" alt="Logo Ing. Lucas" width="36" height="36" loading="eager" fetchpriority="high">
-        </picture>
-      </a>
-      <div class="brand">
-        <strong>Ing. Lucas Learning Hub</strong>
-        <span class="i18n-es">Plantilla Base</span>
-        <span class="i18n-en">Base Template</span>
-      </div>
+      <a class="logo" href="/" aria-label="Inicio · Ing. Lucas Learning Hub"><picture><source srcset="/galeria/logo/logoinglucas.svg" type="image/svg+xml"><img src="/galeria/logo/logoinglucas.png" alt="Logo Ing. Lucas" width="36" height="36" loading="eager" fetchpriority="high"></picture></a>
+      <div class="brand"><strong>Ing. Lucas Learning Hub</strong><span class="i18n-es">Plantilla Base</span><span class="i18n-en">Base Template</span></div>
       <div class="actions">
-        <button class="icon-btn" id="openComments" title="Abrir comentarios" aria-label="Abrir comentarios" aria-expanded="false" aria-controls="commentsDrawer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
-        </button>
-        <button class="icon-btn" id="openDrawer" title="Abrir menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
-        </button>
-        <button class="icon-btn" id="langToggle" title="Cambiar idioma" aria-label="Cambiar idioma" aria-pressed="false">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.73 6h-3.46a15.9 15.9 0 0 0-1.6-3.63A8.03 8.03 0 0 1 19.73 8zM12 4c.88 0 2.39 1.88 3.23 4H8.77C9.61 5.88 11.12 4 12 4zM4.27 8A8.03 8.03 0 0 1 9.33 4.37 15.9 15.9 0 0 0 7.73 8H4.27zM4 10h3.16c-.08.66-.13 1.32-.13 2s.05 1.34.13 2H4a8 8 0 0 1 0-4zm.27 6h3.46c.4 1.28.95 2.49 1.6 3.63A8.03 8.03 0 0 1 4.27 16zM12 20c-.88 0-2.39-1.88-3.23-4h6.46C14.39 18.12 12.88 20 12 20zm2.67-.37c.65-1.14 1.2-2.35 1.6-3.63h3.46a8.03 8.03 0 0 1-5.06 3.63zM20 14h-3.16c.08-.66.13-1.32.13-2s-.05-1.34-.13-2H20a8 8 0 0 1 0 4z"/></svg>
-          <span class="lang-chip" id="langChip" aria-hidden="true">ES</span>
-        </button>
+        <button class="icon-btn" id="openComments" title="Abrir comentarios" aria-label="Abrir comentarios" aria-expanded="false" aria-controls="commentsDrawer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v16l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg></button>
+        <button class="icon-btn" id="openDrawer" title="Abrir menú" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>
+        <button class="icon-btn" id="langToggle" title="Cambiar idioma" aria-label="Cambiar idioma" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.73 6h-3.46a15.9 15.9 0 0 0-1.6-3.63A8.03 8.03 0 0 1 19.73 8zM12 4c.88 0 2.39 1.88 3.23 4H8.77C9.61 5.88 11.12 4 12 4zM4.27 8A8.03 8.03 0 0 1 9.33 4.37 15.9 15.9 0 0 0 7.73 8H4.27zM4 10h3.16c-.08.66-.13 1.32-.13 2s.05 1.34.13 2H4a8 8 0 0 1 0-4zm.27 6h3.46c.4 1.28.95 2.49 1.6 3.63A8.03 8.03 0 0 1 4.27 16zM12 20c-.88 0-2.39-1.88-3.23-4h6.46C14.39 18.12 12.88 20 12 20zm2.67-.37c.65-1.14 1.2-2.35 1.6-3.63h3.46a8.03 8.03 0 0 1-5.06 3.63zM20 14h-3.16c.08-.66.13-1.32.13-2s-.05-1.34-.13-2H20a8 8 0 0 1 0 4z"/></svg><span class="lang-chip" id="langChip" aria-hidden="true">ES</span></button>
       </div>
     </div>
   </div>
   <aside class="drawer" id="drawer" aria-label="Menú de navegación" aria-hidden="true">
-    <div class="hd">
-      <strong class="i18n-es">Navegación</strong>
-      <strong class="i18n-en">Navigation</strong>
-      <button class="btn" id="closeDrawer" aria-label="Cerrar">Cerrar ✕</button>
-    </div>
+    <div class="hd"><strong class="i18n-es">Navegación</strong><strong class="i18n-en">Navigation</strong><button class="btn" id="closeDrawer" aria-label="Cerrar">Cerrar ✕</button></div>
     <div class="bd">
-      <div class="nav-group">
-        <h4 class="i18n-es">Páginas</h4>
-        <h4 class="i18n-en">Pages</h4>
-        <nav class="nav" id="nav-pages"></nav>
-      </div>
-      <div class="nav-group">
-        <h4 class="i18n-es">Ventanas / Proyectos</h4>
-        <h4 class="i18n-en">Windows / Projects</h4>
-        <nav class="nav" id="nav-projects"></nav>
-      </div>
+      <div class="nav-search"><input type="search" id="navSearchInput" placeholder="Buscar en el menú..." aria-label="Buscar en el menú"></div>
+      <div class="nav-group"><h4 class="i18n-es">Páginas</h4><h4 class="i18n-en">Pages</h4><nav class="nav" id="nav-pages"></nav></div>
+      <div class="nav-group"><h4 class="i18n-es">Ventanas / Proyectos</h4><h4 class="i18n-en">Windows / Projects</h4><nav class="nav" id="nav-projects"></nav></div>
     </div>
   </aside>
   <aside class="comments-drawer" id="commentsDrawer" aria-label="Comentarios" aria-hidden="true">
-    <div class="hd">
-      <strong class="i18n-es">Comentarios</strong>
-      <strong class="i18n-en">Comments</strong>
-      <button class="btn" id="closeComments" aria-label="Cerrar comentarios">Cerrar ✕</button>
-    </div>
-    <div class="bd">
-      <div id="commentsMount" aria-live="polite"></div>
-    </div>
+    <div class="hd"><strong class="i18n-es">Comentarios</strong><strong class="i18n-en">Comments</strong><button class="btn" id="closeComments" aria-label="Cerrar comentarios">Cerrar ✕</button></div>
+    <div class="bd"><div id="commentsMount" aria-live="polite"></div></div>
   </aside>
   <div class="wrap workspace">
     <section class="window" role="region" aria-label="Contenido principal">
       <div class="window-titlebar">
         <div class="title-left">
-          <div class="traffic" aria-hidden="true">
-            <span class="dot close"></span><span class="dot min"></span><span class="dot max"></span>
-          </div>
+          <div class="traffic" aria-hidden="true"><span class="dot close"></span><span class="dot min"></span><span class="dot max"></span></div>
           <div>
-            <div class="window-title i18n-es">Inicio · Ing. Lucas Learning Hub</div>
-            <div class="window-title i18n-en">Home · Ing. Lucas Learning Hub</div>
-            <div class="title-meta i18n-es">Ruta > Portada · Estado</div>
-            <div class="title-meta i18n-en">Path > Home · Status</div>
+            <div class="window-title i18n-es">Inicio · Ing. Lucas Learning Hub</div><div class="window-title i18n-en">Home · Ing. Lucas Learning Hub</div>
+            <div class="title-meta i18n-es">Ruta > Portada · Estado</div><div class="title-meta i18n-en">Path > Home · Status</div>
           </div>
         </div>
-        <div class="title-right"></div>
       </div>
       <div class="window-body">
         <section class="pane">
-          <h1 class="i18n-es">🌱 Plantilla lista</h1>
-          <h1 class="i18n-en">🌱 Template ready</h1>
-          <p class="i18n-es">Este espacio está listo para tu módulo. Mantén tus estilos y JS **encapsulados**.</p>
-          <p class="i18n-en">This area is ready for your module. Keep your styles and JS **scoped**.</p>
+          <h1 class="i18n-es">🌱 Plantilla lista</h1><h1 class="i18n-en">🌱 Template ready</h1>
+          <p class="i18n-es">Este espacio está listo para tu módulo. Mantén tus estilos y JS **encapsulados**.</p><p class="i18n-en">This area is ready for your module. Keep your styles and JS **scoped**.</p>
         </section>
         <footer class="project-note" aria-label="Nota del proyecto">
           <span class="tag">🧩 Proyecto</span>
-          <div>
-            <strong id="projectTitle">[TOCAR] Título del proyecto</strong>
-            <div id="projectNote">[TOCAR] Nota fija: objetivos, pendientes o changelog.</div>
-          </div>
+          <div><strong id="projectTitle">[TOCAR] Título del proyecto</strong><div id="projectNote">[TOCAR] Nota fija: objetivos, pendientes o changelog.</div></div>
         </footer>
       </div>
     </section>
@@ -186,31 +128,18 @@
         </div>
         <div style="margin-top:10px"><a href="politicas-privacidad.html">Políticas de Privacidad</a></div>
       </div>
-      <div>
-        © <span id="y"></span> <strong>IngLucas</strong> · Ing. Lucas Learning Hub · Colombia
-        <div id="custom-text" style="margin-top:8px; font-size:0.92em; opacity:.85;"><em>— [TOCAR/EDIT] Mensaje breve de pie de página / Short footer note.</em></div>
-      </div>
+      <div>© <span id="y"></span> <strong>IngLucas</strong> · Ing. Lucas Learning Hub · Colombia<div id="custom-text" style="margin-top:8px; font-size:0.92em; opacity:.85;"><em>— [TOCAR/EDIT] Mensaje breve de pie de página / Short footer note.</em></div></div>
     </div>
   </footer>
   <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
     <div class="card">
       <div class="row">
-        <p>
-          <span class="i18n-es">Usamos <strong>cookies esenciales</strong> para que el sitio funcione correctamente y, con tu permiso, <strong>cookies analíticas</strong> para entender el uso y mejorar la experiencia. Puedes cambiar tu elección en <em>“Preferencias de cookies”</em>. Consulta la <a href="politicas-privacidad.html" target="_self">Política de Privacidad</a>.</span>
-          <span class="i18n-en">We use <strong>essential cookies</strong> for core functionality and, with your permission, <strong>analytics cookies</strong> to improve the experience. You can change your choice in <em>“Cookie preferences”</em>. See our <a href="politicas-privacidad.html" target="_self">Privacy Policy</a>.</span>
-        </p>
-        <div class="actions">
-          <button class="btn" id="deny"><span class="i18n-es">Rechazar</span><span class="i18n-en">Decline</span></button>
-          <button class="btn primary" id="allow"><span class="i18n-es">Aceptar</span><span class="i18n-en">Accept</span></button>
-        </div>
+        <p><span class="i18n-es">Usamos <strong>cookies esenciales</strong> para que el sitio funcione correctamente y, con tu permiso, <strong>cookies analíticas</strong> para entender el uso y mejorar la experiencia. Puedes cambiar tu elección en <em>“Preferencias de cookies”</em>. Consulta la <a href="politicas-privacidad.html" target="_self">Política de Privacidad</a>.</span><span class="i18n-en">We use <strong>essential cookies</strong> for core functionality and, with your permission, <strong>analytics cookies</strong> to improve the experience. You can change your choice in <em>“Cookie preferences”</em>. See our <a href="politicas-privacidad.html" target="_self">Privacy Policy</a>.</span></p>
+        <div class="actions"><button class="btn" id="deny"><span class="i18n-es">Rechazar</span><span class="i18n-en">Decline</span></button><button class="btn primary" id="allow"><span class="i18n-es">Aceptar</span><span class="i18n-en">Accept</span></button></div>
       </div>
     </div>
   </div>
-  <noscript>
-    <div style="position:fixed;left:0;right:0;bottom:0;background:#0f172a;color:#e6efff;border-top:1px solid #243b64;padding:10px 14px;font:14px/1.4 system-ui">
-      Este sitio utiliza cookies esenciales. Para analíticas necesitas habilitar JavaScript o dar consentimiento desde “Preferencias de cookies”.
-    </div>
-  </noscript>
+  <noscript><div style="position:fixed;left:0;right:0;bottom:0;background:#0f172a;color:#e6efff;border-top:1px solid #243b64;padding:10px 14px;font:14px/1.4 system-ui">Este sitio utiliza cookies esenciales. Para analíticas necesitas habilitar JavaScript o dar consentimiento desde “Preferencias de cookies”.</div></noscript>
   <script src="/assets/js/plantilla.js"></script>
 </body>
 </html>
