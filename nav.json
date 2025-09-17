@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "href": "/index.html",
+      "label": "Inicio / Portada"
+    },
+    {
+      "href": "/politicas-privacidad.html",
+      "label": "Políticas de Privacidad"
+    }
+  ],
+  "projects": [
+    {
+      "href": "/proyectos/2313/SistemasOperativos.html",
+      "label": "Línea de Tiempo de la Computación"
+    },
+    {
+      "href": "/proyectos/2093/Infografía- Nuevas tecnologías.html",
+      "label": "Infografía: Nuevas Tecnologías"
+    }
+  ]
+}
