@@ -1,0 +1,21 @@
+{
+  "template_subtitle": "Base Template",
+  "nav_title": "Navigation",
+  "nav_close": "Close ✕",
+  "nav_search_placeholder": "Search in menu...",
+  "nav_pages_title": "Pages",
+  "nav_projects_title": "Windows / Projects",
+  "comments_title": "Comments",
+  "comments_close": "Close ✕",
+  "window_title_placeholder": "Project Title",
+  "window_path_placeholder": "Path > My Project",
+  "pane_template_title": "🌱 Template ready",
+  "pane_template_text": "This area is ready for your module. Keep your styles and JS **scoped**.",
+  "project_note_tag": "🧩 Project",
+  "project_note_title": "[EDIT] Project title",
+  "project_note_text": "[EDIT] Fixed note: goals, pending, or changelog.",
+  "footer_manage_cookies": "Cookie preferences",
+  "footer_privacy_policy": "Privacy Policy",
+  "footer_copyright": "© {year} IngLucas · Ing. Lucas Learning Hub · Colombia",
+  "footer_custom_text": "— A project in constant evolution."
+}
