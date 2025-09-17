@@ -2,21 +2,30 @@
   "pages": [
     {
       "href": "/index.html",
-      "label": "Ing. Lucas Molina · Learning Hub"
+      "label": "Ing. Lucas Molina · Learning Hub",
+      "date": "2025-09-16T..." 
     },
     {
       "href": "/politicas-privacidad.html",
-      "label": "Políticas de Privacidad"
+      "label": "Políticas de Privacidad",
+      "date": "2025-09-15T..."
     }
   ],
   "projects": [
     {
+      "href": "/proyectos/analisis-python/analisis.html",
+      "label": "Análisis de Datos con Python",
+      "date": "2025-09-17T..." 
+    },
+    {
       "href": "/proyectos/2313/SistemasOperativos.html",
-      "label": "Línea de Tiempo de la Computación"
+      "label": "Línea de Tiempo de la Computación",
+      "date": "2025-09-14T..."
     },
     {
       "href": "/proyectos/2093/Infografía- Nuevas tecnologías.html",
-      "label": "Infografía: Nuevas Tecnologías"
+      "label": "Infografía: Nuevas Tecnologías",
+      "date": "2025-09-13T..."
     }
   ]
 }
