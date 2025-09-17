@@ -1,6 +1,4 @@
-/* =============================================================
-   PALETA + LAYOUT BASE
-   ============================================================= */
+
 :root{--blue-900:#0b1730;--blue-800:#0f2346;--blue-700:#153769;--blue-600:#1c4b8c;--blue-500:#2563eb;--blue-400:#60a5fa;--purple-600:#7c3aed;--cyan-400:#22d3ee;--lime-400:#a3e635;--bg:#0e1116;--surface:#121826;--panel:#151d2c;--panel-2:#0f1722;--border:#263349;--soft:#0b0f16;--text:#ecf3ff;--muted:#b4c2d6;--accent-ring:0 0 0 3px rgba(34,211,238,.25);--radius:16px;--radius-sm:12px;--shadow:0 12px 28px rgba(0,0,0,.35);--container:1200px;--gap:16px}
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -53,17 +51,3 @@ html[data-lang=en] .i18n-es{display:none!important}
 footer{border-top:1px solid var(--border);color:var(--muted);padding:22px 0;font-size:13px;background:linear-gradient(180deg,#0f1624,#0c121e)}
 .foot{display:grid;gap:12px}
 @media(min-width:860px){.foot{grid-template-columns:1fr auto}}
-.socials{display:flex;gap:10px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:rgba(18,23,31,.8);color:#eef5ff}
-.consent{display:none;position:fixed;inset:auto 0 16px 0;z-index:1000}
-.consent .card{max-width:960px;margin:0 auto;background:#0f172a;color:#e6efff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.28);padding:16px 18px;border:1px solid rgba(96,165,250,.25)}
-.consent .row{display:flex;gap:16px;align-items:flex-start}
-.consent p{margin:0;line-height:1.5}
-.consent .actions{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(96,165,250,.35);background:rgba(37,99,235,.15);color:#eaf2ff;cursor:pointer}
-.btn.primary{background:var(--blue-500);border-color:transparent;color:white}
-.btn:hover{filter:brightness(1.05)}
-.comments-drawer{position:fixed;z-index:80;inset:0 auto 0 0;width:420px;max-width:92vw;background:linear-gradient(180deg,#0b1626,#0a1220);border-right:2px solid var(--blue-500);box-shadow:20px 0 40px rgba(0,0,0,.45);transform:translateX(-100%);transition:.25s ease transform;display:flex;flex-direction:column}
-.comments-drawer.open{transform:translateX(0)}
-.comments-drawer .hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border)}
-.comments-drawer .bd{padding:10px 12px;overflow:auto;height:100%}
