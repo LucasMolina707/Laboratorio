@@ -1,22 +1,14 @@
 /* =============================================================
    PALETA + LAYOUT BASE
    ============================================================= */
-:root {
-  --blue-900: #0b1730; --blue-800: #0f2346; --blue-700: #153769; --blue-600: #1c4b8c; --blue-500: #2563eb; --blue-400: #60a5fa;
-  --purple-600: #7c3aed; --cyan-400: #22d3ee; --lime-400: #a3e635;
-  --bg: #0e1116; --surface: #121826; --panel: #151d2c; --panel-2: #0f1722;
-  --border: #263349; --soft: #0b0f16; --text: #ecf3ff; --muted: #b4c2d6;
-  --accent-ring: 0 0 0 3px rgba(34, 211, 238, .25);
-  --radius: 16px; --radius-sm: 12px; --shadow: 0 12px 28px rgba(0, 0, 0, .35);
-  --container: 1200px; --gap: 16px;
-}
+:root{--blue-900:#0b1730;--blue-800:#0f2346;--blue-700:#153769;--blue-600:#1c4b8c;--blue-500:#2563eb;--blue-400:#60a5fa;--purple-600:#7c3aed;--cyan-400:#22d3ee;--lime-400:#a3e635;--bg:#0e1116;--surface:#121826;--panel:#151d2c;--panel-2:#0f1722;--border:#263349;--soft:#0b0f16;--text:#ecf3ff;--muted:#b4c2d6;--accent-ring:0 0 0 3px rgba(34,211,238,.25);--radius:16px;--radius-sm:12px;--shadow:0 12px 28px rgba(0,0,0,.35);--container:1200px;--gap:16px}
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;font-family:Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;background:linear-gradient(180deg,var(--panel-2),var(--bg));color:var(--text)}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--panel-2),var(--bg));color:var(--text)}
 a{color:var(--blue-400);text-decoration:none}
 .wrap{max-width:var(--container);margin:0 auto;padding:0 20px}
-html[data-lang="es"] .i18n-en{display:none !important}
-html[data-lang="en"] .i18n-es{display:none !important}
+html[data-lang=es] .i18n-en{display:none!important}
+html[data-lang=en] .i18n-es{display:none!important}
 .topbar{position:sticky;top:0;z-index:60;backdrop-filter:saturate(1.1) blur(8px);background:rgba(13,18,30,.75);border-bottom:1px solid var(--border)}
 .topbar .row{display:flex;align-items:center;gap:12px;padding:12px 0}
 .logo{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(180deg,#0f172a,#0b1220);border:1px solid rgba(96,165,250,.25)}
@@ -25,7 +17,7 @@ html[data-lang="en"] .i18n-es{display:none !important}
 .brand strong{font-size:16px}
 .brand span{font-size:12px;color:var(--muted)}
 .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
-.icon-btn{--size:40px;width:var(--size);height:var(--size);display:inline-grid;place-items:center;border-radius:12px;border:1.5px solid var(--blue-500);background:linear-gradient(180deg,#0f172a,#0b1220);color:#e8f1ff;cursor:pointer;transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.icon-btn{--size:40px;width:var(--size);height:var(--size);display:inline-grid;place-items:center;border-radius:12px;border:1.5px solid var(--blue-500);background:linear-gradient(180deg,#0f172a,#0b1220);color:#e8f1ff;cursor:pointer;transition:transform .15s ease,filter .15s ease,box-shadow .15s ease;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .icon-btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .icon-btn:focus-visible{outline:none;box-shadow:var(--accent-ring)}
 .icon-btn svg{width:22px;height:22px;display:block}
@@ -39,6 +31,10 @@ html[data-lang="en"] .i18n-es{display:none !important}
 .nav{display:grid}
 .nav a{padding:12px 12px;border-top:1px solid var(--border)}
 .nav a:hover{background:rgba(37,99,235,.18)}
+.nav-search{margin-bottom:12px}
+.nav-search input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border);background:rgba(18,23,31,.8);color:var(--text);font-size:14px}
+.nav-search input:focus{outline:none;box-shadow:var(--accent-ring);border-color:var(--blue-400)}
+.nav a.hidden{display:none}
 .workspace{padding:24px 0}
 .window{background:linear-gradient(180deg,rgba(25,31,45,.96),rgba(18,23,33,.96));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .window-titlebar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;background:linear-gradient(180deg,#1a2333,#151c29);border-bottom:1px solid var(--border)}
