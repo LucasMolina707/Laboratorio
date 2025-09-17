@@ -15,40 +15,36 @@ jobs:
         with:
           fetch-depth: 0 # Necesario para obtener el historial completo y las fechas
 
+      - name: Set up jq
+        run: sudo apt-get install -y jq
+
       - name: Generate Navigation File
         run: |
-          # Prepara el inicio del archivo JSON
-          echo '{"pages": [], "projects": []}' > nav.json
+          # --- PREPARACIÓN ---
+          PAGES_JSON_ARRAY=()
+          PROJECTS_JSON_ARRAY=()
 
           # --- GENERAR SECCIÓN DE PÁGINAS ---
-          # Busca archivos HTML solo en el directorio raíz
-          PAGES=$(find . -maxdepth 1 -type f -name "*.html" ! -name "_*" -print0 | xargs -0 -I {} bash -c '
-            FILE="{}"
-            # Extrae el título del tag <title> del archivo HTML
-            TITLE=$(grep -o "<title>.*</title>" $FILE | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s " " | xargs)
-            # Obtiene la fecha del último commit para ordenar
-            DATE=$(git log -1 --format=%cI -- "$FILE")
-            # Crea la entrada JSON y la guarda en un archivo temporal
-            echo "{\"href\":\"/$(basename $FILE)\",\"label\":\"$TITLE\",\"date\":\"$DATE\"}"
-          ')
+          while IFS= read -r -d '' file; do
+              title=$(grep -o "<title>.*</title>" "$file" | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s ' ' | xargs)
+              date=$(git log -1 --format=%cI -- "$file")
+              page_json=$(jq -n --arg href "/$(basename "$file")" --arg label "$title" --arg date "$date" '{href: $href, label: $label, date: $date}')
+              PAGES_JSON_ARRAY+=("$page_json")
+          done < <(find . -maxdepth 1 -type f -name "*.html" ! -name "_*" -print0)
 
           # --- GENERAR SECCIÓN DE PROYECTOS ---
-          # Busca archivos HTML dentro de la carpeta /proyectos y sus subcarpetas
-          PROJECTS=$(find ./proyectos -type f -name "*.html" ! -name "_*" -print0 | xargs -0 -I {} bash -c '
-            FILE="{}"
-            TITLE=$(grep -o "<title>.*</title>" $FILE | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s " " | xargs)
-            DATE=$(git log -1 --format=%cI -- "$FILE")
-            # Importante: la ruta href debe ser relativa a la raíz del sitio
-            echo "{\"href\":\"/$(echo $FILE | sed "s|./||")\",\"label\":\"$TITLE\",\"date\":\"$DATE\"}"
-          ')
+          while IFS= read -r -d '' file; do
+              title=$(grep -o "<title>.*</title>" "$file" | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s ' ' | xargs)
+              date=$(git log -1 --format=%cI -- "$file")
+              project_json=$(jq -n --arg href "/$(echo "$file" | sed "s|./||")" --arg label "$title" --arg date "$date" '{href: $href, label: $label, date: $date}')
+              PROJECTS_JSON_ARRAY+=("$project_json")
+          done < <(find ./proyectos -type f -name "*.html" ! -name "_*" -print0)
 
-          # Ordena las páginas y proyectos por fecha (más reciente primero) y las añade al nav.json
-          echo "$PAGES" | sort -r -k3 > sorted_pages.json
-          echo "$PROJECTS" | sort -r -k3 > sorted_projects.json
+          # --- CONSTRUIR EL JSON FINAL ---
+          sorted_pages=$(printf "%s\n" "${PAGES_JSON_ARRAY[@]}" | jq -s 'sort_by(.date) | reverse')
+          sorted_projects=$(printf "%s\n" "${PROJECTS_JSON_ARRAY[@]}" | jq -s 'sort_by(.date) | reverse')
 
-          # Usa jq para construir el JSON final de forma segura
-          jq ".pages = [$(cat sorted_pages.json | tr '\n' ',')]" nav.json > tmp.$$.json && mv tmp.$$.json nav.json
-          jq ".projects = [$(cat sorted_projects.json | tr '\n' ',')]" nav.json > tmp.$$.json && mv tmp.$$.json nav.json
+          jq -n --argjson pages "$sorted_pages" --argjson projects "$sorted_projects" '{pages: $pages, projects: $projects}' > nav.json
 
           echo "nav.json generado con éxito:"
           cat nav.json
@@ -58,7 +54,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add nav.json
-          # Solo hace commit si hay cambios en el archivo nav.json
           if ! git diff --staged --quiet; then
             git commit -m "Automated: Update nav.json"
             git push
