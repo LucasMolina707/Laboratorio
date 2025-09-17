@@ -1,0 +1,67 @@
+name: Generate Navigation JSON
+
+on:
+  push:
+    branches:
+      - main # O la rama principal que uses, ej: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Necesario para obtener el historial completo y las fechas
+
+      - name: Generate Navigation File
+        run: |
+          # Prepara el inicio del archivo JSON
+          echo '{"pages": [], "projects": []}' > nav.json
+
+          # --- GENERAR SECCIÓN DE PÁGINAS ---
+          # Busca archivos HTML solo en el directorio raíz
+          PAGES=$(find . -maxdepth 1 -type f -name "*.html" ! -name "_*" -print0 | xargs -0 -I {} bash -c '
+            FILE="{}"
+            # Extrae el título del tag <title> del archivo HTML
+            TITLE=$(grep -o "<title>.*</title>" $FILE | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s " " | xargs)
+            # Obtiene la fecha del último commit para ordenar
+            DATE=$(git log -1 --format=%cI -- "$FILE")
+            # Crea la entrada JSON y la guarda en un archivo temporal
+            echo "{\"href\":\"/$(basename $FILE)\",\"label\":\"$TITLE\",\"date\":\"$DATE\"}"
+          ')
+
+          # --- GENERAR SECCIÓN DE PROYECTOS ---
+          # Busca archivos HTML dentro de la carpeta /proyectos y sus subcarpetas
+          PROJECTS=$(find ./proyectos -type f -name "*.html" ! -name "_*" -print0 | xargs -0 -I {} bash -c '
+            FILE="{}"
+            TITLE=$(grep -o "<title>.*</title>" $FILE | sed -e "s/<title>//" -e "s/<\/title>//" | sed -e "s/·.*//" | tr -s " " | xargs)
+            DATE=$(git log -1 --format=%cI -- "$FILE")
+            # Importante: la ruta href debe ser relativa a la raíz del sitio
+            echo "{\"href\":\"/$(echo $FILE | sed "s|./||")\",\"label\":\"$TITLE\",\"date\":\"$DATE\"}"
+          ')
+
+          # Ordena las páginas y proyectos por fecha (más reciente primero) y las añade al nav.json
+          echo "$PAGES" | sort -r -k3 > sorted_pages.json
+          echo "$PROJECTS" | sort -r -k3 > sorted_projects.json
+
+          # Usa jq para construir el JSON final de forma segura
+          jq ".pages = [$(cat sorted_pages.json | tr '\n' ',')]" nav.json > tmp.$$.json && mv tmp.$$.json nav.json
+          jq ".projects = [$(cat sorted_projects.json | tr '\n' ',')]" nav.json > tmp.$$.json && mv tmp.$$.json nav.json
+
+          echo "nav.json generado con éxito:"
+          cat nav.json
+
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add nav.json
+          # Solo hace commit si hay cambios en el archivo nav.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Automated: Update nav.json"
+            git push
+          else
+            echo "No changes to nav.json. Nothing to commit."
+          fi
